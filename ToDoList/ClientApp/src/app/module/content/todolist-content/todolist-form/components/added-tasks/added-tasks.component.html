@@ -1,0 +1,7 @@
+<div class="chosen" *ngFor="let task of service.LocalAddedTasks">
+    <div class="info">
+        <p class="heading">{{task.Id}}</p>
+        <p class="heading">{{task.TaskName}}</p>
+    </div>
+    <img class="delete-button" src="assets/images/Иконка-Удалить.svg" (click)="DeleteTask(task.Id)">
+</div>
