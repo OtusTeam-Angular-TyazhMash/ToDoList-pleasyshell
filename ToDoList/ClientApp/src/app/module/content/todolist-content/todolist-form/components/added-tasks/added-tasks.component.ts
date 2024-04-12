@@ -9,7 +9,8 @@ import { ToDoListService } from "src/app/services";
 })
 
 export class AddedTasksComponent {
-
+    
+    
     constructor(protected service: ToDoListService) { }
 
     protected DeleteTask(taskId: number) {
