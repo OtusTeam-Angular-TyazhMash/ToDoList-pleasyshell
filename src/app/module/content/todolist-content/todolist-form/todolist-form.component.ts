@@ -5,8 +5,7 @@ import { ToDoListService } from "src/app/services";
     selector: 'todolist-form',
     templateUrl: './todolist-form.component.html',
     styleUrls: ['./todolist-form.component.scss',
-        '../../../../styles/button-styles.scss',
-        '../../../../styles/modal-styles.scss']
+        '../core.scss']
 })
 
 export class ToDoListFormComponent {
@@ -14,7 +13,7 @@ export class ToDoListFormComponent {
     constructor(protected service: ToDoListService) { }
 
     protected NewTask: string = '';
-    
+
 
     protected SaveTask(taskname: string) {
 
