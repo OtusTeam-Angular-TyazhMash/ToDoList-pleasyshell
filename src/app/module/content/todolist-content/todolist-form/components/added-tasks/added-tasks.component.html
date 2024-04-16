@@ -3,5 +3,5 @@
         <p class="heading">{{task.Id}}</p>
         <p class="heading">{{task.TaskName}}</p>
     </div>
-    <img class="delete-button" src="assets/images/Иконка-Удалить.svg" (click)="DeleteTask(task.Id)">
+    <delete-button (click)="DeleteTask(task.Id)"></delete-button>
 </div>
