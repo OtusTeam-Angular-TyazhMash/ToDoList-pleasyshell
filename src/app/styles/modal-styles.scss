@@ -1,0 +1,49 @@
+.chosen {
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px 10px 15px;
+    transition: 0.2s;
+    gap: 30px;
+
+
+    &:hover {
+        background-color: rgba(0, 79, 158, 0.10);
+        transition: 0.2s;
+        cursor: pointer;
+    }
+}
+
+.info {
+    display: flex;
+    gap: 20px;
+}
+
+.container-chosen {
+    overflow: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    height: calc(100vh - 260px);
+    transition: 0.2s;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 5px;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #004F9E;
+        border-radius: 5px;
+    }
+
+    &.access {
+        height: 392px;
+    }
+}

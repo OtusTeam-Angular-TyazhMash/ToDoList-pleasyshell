@@ -1,0 +1,44 @@
+.wrapper {
+    min-height: calc(100vh - 60px);
+    padding: 30px;
+}
+
+.main-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-body {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        height: calc(100vh - 120px);
+        transition: 0.2s;
+    }
+}
+
+.item-main {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    height: 16px;
+
+    &.dop-info-empty {
+        font-size: 14px;
+        font-weight: 600;
+        color: #212529;
+    }
+
+    &-less {
+        color: #212529;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        height: 16px;
+
+        &:empty {
+            display: none;
+        }
+    }
+}
