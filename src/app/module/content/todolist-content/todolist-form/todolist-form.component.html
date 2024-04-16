@@ -8,7 +8,7 @@
                 <input title="" type="text" class="input-style" [(ngModel)]="NewTask" name="NewTask" required>
                 <label class="placeholder-prompt">Новая задача</label>
             </div>
-            <save-button Title="Добавить" (click)="SaveTask(NewTask)" [isDisable]="!NewTask"></save-button>
+            <save-button Title="Добавить" (click)="CheckTaskValid(NewTask)" [isDisable]="!NewTask"></save-button>
         </div>
         <div class="container-chosen">
             <div *ngIf="isLoading; else loader">

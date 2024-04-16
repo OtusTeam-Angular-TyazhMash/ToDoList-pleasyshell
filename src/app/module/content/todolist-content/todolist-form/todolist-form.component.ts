@@ -22,7 +22,12 @@ export class ToDoListFormComponent implements OnInit {
         }, 500)
     };
 
-    protected SaveTask(taskname: string) {
+    protected CheckTaskValid(value: string) {
+
+        value !== '' ? this.SaveTask(value) : console.log('Поле пустое!');
+    };
+
+    private SaveTask(taskname: string) {
 
         const Tasks = this.service.LocalAddedTasks;
 
