@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './module/nav-menu/nav-menu.component';
 
-import { ToDoListComponent } from './module/content/todolist-content/todolist.component';
+
+import { ToDoListComponent } from './module/content';
 import { ToDoListFormComponent } from './module/content/todolist-content/todolist-form/todolist-form.component';
 import { AddedTasksComponent } from './module/content/todolist-content/todolist-form/components/added-tasks/added-tasks.component';
 

@@ -14,7 +14,14 @@
             </button>
         </div>
         <div class="container-chosen">
-            <added-tasks></added-tasks>
+            <div *ngIf="isLoading; else loader">
+                <added-tasks></added-tasks>
+            </div>
+            <ng-template class="search-loading" #loader>
+                <div class="search-loading-block">
+                    <img src="assets/images/load.gif">
+                </div>
+            </ng-template>
         </div>
     </form>
 </div>

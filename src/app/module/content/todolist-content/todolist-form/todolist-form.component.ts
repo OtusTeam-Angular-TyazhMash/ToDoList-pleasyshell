@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ToDoListService } from "src/app/services";
 
 @Component({
@@ -8,12 +8,19 @@ import { ToDoListService } from "src/app/services";
         '../core.scss']
 })
 
-export class ToDoListFormComponent {
+export class ToDoListFormComponent implements OnInit {
 
     constructor(protected service: ToDoListService) { }
 
     protected NewTask: string = '';
+    protected isLoading: boolean = false;
 
+
+    ngOnInit() {
+        setTimeout(() => {
+            this.isLoading = true;
+        }, 500)
+    };
 
     protected SaveTask(taskname: string) {
 
@@ -30,5 +37,5 @@ export class ToDoListFormComponent {
         this.NewTask = '';
 
         console.log('Добавить новую задачу =>', FindMaxTaskId + 1, taskname)
-    }
+    };
 }

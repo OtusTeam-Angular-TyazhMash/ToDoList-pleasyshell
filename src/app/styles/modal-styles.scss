@@ -27,6 +27,7 @@
     border-radius: 5px;
     height: calc(100vh - 260px);
     transition: 0.2s;
+    position: relative;
 
     &::-webkit-scrollbar {
         width: 5px;
