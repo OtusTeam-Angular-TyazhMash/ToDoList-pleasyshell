@@ -12,6 +12,7 @@ import { ToDoListFormComponent } from './module/content/todolist-content/todolis
 import { AddedTasksComponent } from './module/content/todolist-content/todolist-form/components/added-tasks/added-tasks.component';
 
 import { ToDoListService } from './services';
+import { SharedButtonsModule } from './module/components/buttons/shared-buttons.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ToDoListService } from './services';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    SharedButtonsModule,
     RouterModule.forRoot([
       { path: '', component: ToDoListComponent, pathMatch: 'full' },
     ])
