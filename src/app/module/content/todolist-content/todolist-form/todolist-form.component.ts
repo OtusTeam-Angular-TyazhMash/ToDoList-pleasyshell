@@ -31,9 +31,7 @@ export class ToDoListFormComponent implements OnInit {
 
         const Tasks = this.service.LocalAddedTasks;
 
-        const FindMaxTaskId = Math.max.apply(Math, Tasks.map(function (task) {
-            return task.Id
-        }));
+        const FindMaxTaskId = Tasks.length === 0 ? 0 : Math.max(...Tasks.map(task => task.Id));
 
         Tasks.push({
             Id: FindMaxTaskId + 1,
