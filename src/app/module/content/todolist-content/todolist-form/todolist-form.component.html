@@ -8,13 +8,17 @@
                 <input title="" type="text" class="input-style" [(ngModel)]="NewTask" name="NewTask" required>
                 <label class="placeholder-prompt">Новая задача</label>
             </div>
-            <button class="save-button" (click)="SaveTask(NewTask)" [ngClass]="{'disabled': !NewTask}"
-                [disabled]="!NewTask">
-                <p class="text-in-buttons">Добавить</p>
-            </button>
+            <save-button Title="Добавить" (click)="CheckTaskValid(NewTask)" [isDisable]="!NewTask"></save-button>
         </div>
         <div class="container-chosen">
-            <added-tasks></added-tasks>
+            <div *ngIf="isLoading; else loader">
+                <added-tasks></added-tasks>
+            </div>
+            <ng-template class="search-loading" #loader>
+                <div class="search-loading-block">
+                    <img src="assets/images/load.gif">
+                </div>
+            </ng-template>
         </div>
     </form>
 </div>
