@@ -11,14 +11,14 @@ export class AddedTasksComponent {
 
     constructor(protected service: ToDoListService) { }
 
-    protected DeleteTask(taskId: number) {
+    protected deleteTask(taskId: number) {
 
-        const Tasks = this.service.LocalAddedTasks;
+        const tasks = this.service.LocalAddedTasks;
 
-        const index = Tasks.findIndex(task => task.Id === taskId);
+        const index = tasks.findIndex(task => task.Id === taskId);
 
         if (index !== -1) {
-            Tasks.splice(index, 1);
+            tasks.splice(index, 1);
 
             console.log('Удалить выбранную задачу по Id =>', taskId);
         }

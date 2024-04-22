@@ -12,7 +12,7 @@ export class ToDoListFormComponent implements OnInit {
 
     constructor(protected service: ToDoListService) { }
 
-    protected NewTask: string = '';
+    protected newTask: string = '';
     protected isLoading: boolean = false;
 
 
@@ -22,23 +22,23 @@ export class ToDoListFormComponent implements OnInit {
         }, 500)
     };
 
-    protected CheckTaskValid(value: string) {
+    protected checkTaskValid(value: string) {
 
-        value !== '' ? this.SaveTask(value) : console.log('Поле пустое!');
+        value !== '' ? this.saveTask(value) : console.log('Поле пустое!');
     };
 
-    private SaveTask(taskname: string) {
+    private saveTask(taskname: string) {
 
-        const Tasks = this.service.LocalAddedTasks;
+        const tasks = this.service.LocalAddedTasks;
 
-        const FindMaxTaskId = Tasks.length === 0 ? 0 : Math.max(...Tasks.map(task => task.Id));
+        const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
 
-        Tasks.push({
-            Id: FindMaxTaskId + 1,
+        tasks.push({
+            Id: findMaxTaskId + 1,
             TaskName: taskname
         });
-        this.NewTask = '';
+        this.newTask = '';
 
-        console.log('Добавить новую задачу =>', FindMaxTaskId + 1, taskname)
+        console.log('Добавить новую задачу =>', findMaxTaskId + 1, taskname)
     };
 }

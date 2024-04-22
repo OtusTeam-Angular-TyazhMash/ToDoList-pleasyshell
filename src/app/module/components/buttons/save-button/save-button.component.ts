@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SaveButtonComponent {
 
-  @Input() Title: string = '';
+  @Input() title: string = '';
   @Input() isDisable: boolean = false;
 
 }

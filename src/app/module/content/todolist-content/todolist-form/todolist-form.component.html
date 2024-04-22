@@ -5,10 +5,10 @@
     <form class="form-container-body">
         <div class="add-task-block">
             <div class="input-container">
-                <input title="" type="text" class="input-style" [(ngModel)]="NewTask" name="NewTask" required>
+                <input title="" type="text" class="input-style" [(ngModel)]="newTask" name="newTask" required>
                 <label class="placeholder-prompt">Новая задача</label>
             </div>
-            <save-button Title="Добавить" (click)="CheckTaskValid(NewTask)" [isDisable]="!NewTask"></save-button>
+            <save-button title="Добавить" (click)="checkTaskValid(newTask)" [isDisable]="!newTask"></save-button>
         </div>
         <div class="container-chosen">
             <div *ngIf="isLoading; else loader">
