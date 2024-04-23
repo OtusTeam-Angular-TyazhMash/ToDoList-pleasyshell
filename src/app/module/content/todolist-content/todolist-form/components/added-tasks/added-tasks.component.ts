@@ -5,7 +5,7 @@ import { ToDoListService } from "src/app/services";
 @Component({
     selector: 'added-tasks',
     templateUrl: './added-tasks.component.html',
-    styleUrls: ['../../../core.scss']
+    styleUrls: ['./added-tasks.component.scss']
 })
 
 export class AddedTasksComponent {

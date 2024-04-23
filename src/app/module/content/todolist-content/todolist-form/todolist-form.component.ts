@@ -4,8 +4,7 @@ import { ToDoListService } from "src/app/services";
 @Component({
     selector: 'todolist-form',
     templateUrl: './todolist-form.component.html',
-    styleUrls: ['./todolist-form.component.scss',
-        '../core.scss']
+    styleUrls: ['./todolist-form.component.scss']
 })
 
 export class ToDoListFormComponent implements OnInit {
