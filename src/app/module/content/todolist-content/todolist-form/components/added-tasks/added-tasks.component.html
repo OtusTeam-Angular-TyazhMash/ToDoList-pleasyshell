@@ -1,7 +1,7 @@
-<div class="chosen" *ngFor="let task of service.LocalAddedTasks">
+<div class="chosen" *ngFor="let task of loadTasks()">
     <div class="info">
         <p class="heading">{{task.Id}}</p>
         <p class="heading">{{task.TaskName}}</p>
     </div>
-    <delete-button (click)="deleteTask(task.Id)"></delete-button>
+    <delete-button (click)="deleteTaskById(task.Id)"></delete-button>
 </div>

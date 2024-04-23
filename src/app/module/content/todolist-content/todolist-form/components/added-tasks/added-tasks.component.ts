@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TTask } from "src/app/module/content-types/task-types/task.type";
 import { ToDoListService } from "src/app/services";
 
 @Component({
@@ -11,16 +12,14 @@ export class AddedTasksComponent {
 
     constructor(protected service: ToDoListService) { }
 
-    protected deleteTask(taskId: number) {
 
-        const tasks = this.service.LocalAddedTasks;
+    protected loadTasks(): TTask[] {
 
-        const index = tasks.findIndex(task => task.Id === taskId);
+        return this.service.getTasks();
+    }
 
-        if (index !== -1) {
-            tasks.splice(index, 1);
+    protected deleteTaskById(taskId: number) {
 
-            console.log('Удалить выбранную задачу по Id =>', taskId);
-        }
+        this.service.deleteTask(taskId);
     }
 }

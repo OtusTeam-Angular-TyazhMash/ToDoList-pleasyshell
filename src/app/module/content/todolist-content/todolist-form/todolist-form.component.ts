@@ -24,21 +24,12 @@ export class ToDoListFormComponent implements OnInit {
 
     protected checkTaskValid(value: string) {
 
-        value !== '' ? this.saveTask(value) : console.log('Поле пустое!');
+        value !== '' ? this.addTask(value) : console.log('Поле пустое!');
     };
 
-    private saveTask(taskname: string) {
+    private addTask(taskname: string) {
 
-        const tasks = this.service.LocalAddedTasks;
-
-        const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
-
-        tasks.push({
-            Id: findMaxTaskId + 1,
-            TaskName: taskname
-        });
+        this.service.saveTask(taskname);
         this.newTask = '';
-
-        console.log('Добавить новую задачу =>', findMaxTaskId + 1, taskname)
     };
 }
