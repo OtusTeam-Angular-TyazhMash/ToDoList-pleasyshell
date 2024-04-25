@@ -1,27 +1,25 @@
 import { Component } from "@angular/core";
+import { TTask } from "src/app/module/content-types/task-types/task.type";
 import { ToDoListService } from "src/app/services";
 
 @Component({
     selector: 'added-tasks',
     templateUrl: './added-tasks.component.html',
-    styleUrls: ['../../../../../../styles/modal-styles.scss',
-        '../../../../../../styles/button-styles.scss']
+    styleUrls: ['./added-tasks.component.scss']
 })
 
 export class AddedTasksComponent {
 
     constructor(protected service: ToDoListService) { }
 
-    protected DeleteTask(taskId: number) {
 
-        const Tasks = this.service.LocalAddedTasks;
+    protected loadTasks(): TTask[] {
 
-        const index = Tasks.findIndex(task => task.Id === taskId);
+        return this.service.getTasks();
+    }
 
-        if (index !== -1) {
-            Tasks.splice(index, 1);
+    protected deleteTaskById(taskId: number) {
 
-            console.log('Удалить выбранную задачу по Id =>', taskId);
-        }
+        this.service.deleteTask(taskId);
     }
 }

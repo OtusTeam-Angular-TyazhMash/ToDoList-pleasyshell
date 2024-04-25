@@ -34,3 +34,31 @@
     display: flex;
     flex-direction: column;
 }
+
+.container-chosen {
+    overflow: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    height: calc(100vh - 260px);
+    transition: 0.2s;
+    position: relative;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 5px;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #004F9E;
+        border-radius: 5px;
+    }
+
+    &.access {
+        height: 392px;
+    }
+}

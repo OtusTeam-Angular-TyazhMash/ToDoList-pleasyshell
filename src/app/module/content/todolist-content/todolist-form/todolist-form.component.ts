@@ -1,35 +1,34 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ToDoListService } from "src/app/services";
 
 @Component({
     selector: 'todolist-form',
     templateUrl: './todolist-form.component.html',
-    styleUrls: ['./todolist-form.component.scss',
-        '../../../../styles/button-styles.scss',
-        '../../../../styles/modal-styles.scss']
+    styleUrls: ['./todolist-form.component.scss']
 })
 
-export class ToDoListFormComponent {
+export class ToDoListFormComponent implements OnInit {
 
     constructor(protected service: ToDoListService) { }
 
-    protected NewTask: string = '';
-    
+    protected newTask: string = '';
+    protected isLoading: boolean = false;
 
-    protected SaveTask(taskname: string) {
 
-        const Tasks = this.service.LocalAddedTasks;
+    ngOnInit() {
+        setTimeout(() => {
+            this.isLoading = true;
+        }, 500)
+    };
 
-        const FindMaxTaskId = Math.max.apply(Math, Tasks.map(function (task) {
-            return task.Id
-        }));
+    protected checkTaskValid(value: string) {
 
-        Tasks.push({
-            Id: FindMaxTaskId + 1,
-            TaskName: taskname
-        });
-        this.NewTask = '';
+        value !== '' ? this.addTask(value) : console.log('Поле пустое!');
+    };
 
-        console.log('Добавить новую задачу =>', FindMaxTaskId + 1, taskname)
-    }
+    private addTask(taskname: string) {
+
+        this.service.saveTask(taskname);
+        this.newTask = '';
+    };
 }

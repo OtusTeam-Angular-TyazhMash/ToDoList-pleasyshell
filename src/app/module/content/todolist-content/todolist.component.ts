@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'todolist-content',
-  templateUrl: './todolist.component.html',
-  styleUrls: ['../../../styles/pages-styles.scss']
+  templateUrl: './todolist.component.html'
 })
 
 export class ToDoListComponent {
