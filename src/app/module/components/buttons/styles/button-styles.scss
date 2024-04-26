@@ -102,3 +102,7 @@
         cursor: not-allowed;
     }
 }
+
+.flip {
+    transform: rotate(180deg);
+}

@@ -8,7 +8,8 @@ export class ToDoListService {
     private localAddedTasks: TTask[] = [
         {
             Id: 1,
-            TaskName: 'Помыть посуду'
+            TaskName: 'Помыть посуду',
+            Description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
         },
         {
             Id: 2,
@@ -16,15 +17,18 @@ export class ToDoListService {
         },
         {
             Id: 3,
-            TaskName: 'Погулять в парке'
+            TaskName: 'Погулять в парке',
+            Description: 'А то все время работа и работа...'
         },
         {
             Id: 4,
-            TaskName: 'Поговорить с Ларисой'
+            TaskName: 'Поговорить с Ларисой',
+            Description: 'О повышении ЗП'
         },
         {
             Id: 5,
-            TaskName: 'Работать'
+            TaskName: 'Работать',
+            Description: 'Деньги это круто'
         }
     ];
 
@@ -32,7 +36,7 @@ export class ToDoListService {
         return [...this.localAddedTasks];
     };
 
-    public saveTask(taskname: string) {
+    public saveTask(taskname: string, description?: string) {
 
         const tasks = this.localAddedTasks;
 
@@ -40,7 +44,8 @@ export class ToDoListService {
 
         tasks.push({
             Id: findMaxTaskId + 1,
-            TaskName: taskname
+            TaskName: taskname,
+            Description: description
         });
 
         console.log('Добавить новую задачу =>', findMaxTaskId + 1, taskname)
