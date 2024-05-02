@@ -32,5 +32,6 @@ export class ToDoListFormComponent implements OnInit {
 
         this.service.saveTask(taskname, description);
         this.newTask = '';
+        this.descriptionOfTask = '';
     };
 }
