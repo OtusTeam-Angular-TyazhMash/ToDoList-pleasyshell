@@ -6,9 +6,15 @@
         <div class="add-task-block">
             <div class="input-container">
                 <input title="" type="text" class="input-style" [(ngModel)]="newTask" name="newTask" required>
-                <label class="placeholder-prompt">Новая задача</label>
+                <label class="placeholder-prompt">Задача*</label>
             </div>
-            <save-button title="Добавить" (click)="checkTaskValid(newTask)" [isDisable]="!newTask"></save-button>
+            <div class="input-container">
+                <input title="" type="text" class="input-style" [(ngModel)]="descriptionOfTask" name="taskOfDescription"
+                    required>
+                <label class="placeholder-prompt">Описание</label>
+            </div>
+            <save-button toolTip title="Добавить" (click)="checkTaskValid(newTask,descriptionOfTask)"
+                [isDisable]="!newTask"></save-button>
         </div>
         <div class="container-chosen">
             <div *ngIf="isLoading; else loader">
@@ -22,3 +28,4 @@
         </div>
     </form>
 </div>
+<selected-task></selected-task>

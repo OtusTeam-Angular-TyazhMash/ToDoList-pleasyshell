@@ -7,13 +7,24 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './module/nav-menu/nav-menu.component';
 
+import { SharedButtonsModule } from './module/components/shared-components.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ToDoListComponent } from './module/content';
-import { ToDoListFormComponent } from './module/content/todolist-content/todolist-form/todolist-form.component';
-import { AddedTasksComponent } from './module/content/todolist-content/todolist-form/components/added-tasks/added-tasks.component';
+import {
+  AddedTasksComponent,
+  SelectedTaskComponent,
+  ToDoListComponent,
+  ToDoListFormComponent
+} from './module/content';
+
+import {
+  
+  OnclickOutsideDirective,
+  ToolTipDirective
+} from './module/utils';
 
 import { ToDoListService } from './services';
-import { SharedButtonsModule } from './module/components/buttons/shared-buttons.module';
+
 
 
 @NgModule({
@@ -22,12 +33,16 @@ import { SharedButtonsModule } from './module/components/buttons/shared-buttons.
     NavMenuComponent,
     ToDoListComponent,
     ToDoListFormComponent,
-    AddedTasksComponent
+    AddedTasksComponent,
+    SelectedTaskComponent,
+    ToolTipDirective,
+    OnclickOutsideDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
     SharedButtonsModule,
     RouterModule.forRoot([
       { path: '', component: ToDoListComponent, pathMatch: 'full' },
