@@ -11,18 +11,4 @@ export class ListButtonComponent {
 
   constructor(private service: ToDoListService) { }
 
-  @Input() taskOption!: TTask;
-
-  protected showDescription(task: TTask) {
-
-    const tasks = this.service.getTasks();
-
-    tasks.forEach(x => {
-      if (x !== task) {
-        x.isShowDescription = false;
-      }
-    })
-    task.isShowDescription = !task.isShowDescription;
-  }
-  
 }

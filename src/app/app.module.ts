@@ -7,16 +7,24 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './module/nav-menu/nav-menu.component';
 
+import { SharedButtonsModule } from './module/components/shared-components.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
   AddedTasksComponent,
+  SelectedTaskComponent,
   ToDoListComponent,
   ToDoListFormComponent
 } from './module/content';
 
+import {
+  
+  OnclickOutsideDirective,
+  ToolTipDirective
+} from './module/utils';
+
 import { ToDoListService } from './services';
-import { SharedButtonsModule } from './module/components/shared-components.module';
-import { ToolTipDirective } from './module/utils/directives/tooltip.directive';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -26,7 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToDoListComponent,
     ToDoListFormComponent,
     AddedTasksComponent,
-    ToolTipDirective
+    SelectedTaskComponent,
+    ToolTipDirective,
+    OnclickOutsideDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -1,17 +1,9 @@
-<div class="chosen" [ngClass]="{'selected': task.isShowDescription}" *ngFor="let task of loadTasks()">
+<div class="chosen" [ngClass]="{'selected': task.isShowDescription}" *ngFor="let task of loadTasks()" (click)="showDescription(task)">
     <div class="info">
         <p class="heading">{{task.Id}}</p>
         <p class="heading">{{task.TaskName}}</p>
     </div>
     <div class="chosen-manage-block">
-        <list-button [taskOption]="task" title="Открыть список" toolTip *ngIf="task.Description"></list-button>
         <delete-button title="Удалить" toolTip (click)="deleteTaskById(task.Id)"></delete-button>
-    </div>
-    <div class="modal-list" *ngIf="task.isShowDescription" @showList>
-        <div class="list">
-            <div class="list-container">
-                <p class="item-main">{{task.Description}}</p>
-            </div>
-        </div>
     </div>
 </div>
