@@ -155,8 +155,6 @@ export class ToDoListService {
         this.selectedTask = initTask();
     };
 
-
-
     public OpenTaskModal(task?: TTask) {
 
         if (!task) {

@@ -3,19 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { OnclickOutsideDirective } from './onclickoutside.directive';
 import { ToolTipDirective } from './tooltip.directive';
+import { DisableTypingDirective } from './disable-typing.directive';
 
 
 @NgModule({
   declarations: [
     OnclickOutsideDirective,
-    ToolTipDirective
+    ToolTipDirective,
+    DisableTypingDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
     OnclickOutsideDirective,
-    ToolTipDirective
+    ToolTipDirective,
+    DisableTypingDirective
   ]
 })
 export class SharedDirectivesModule { }
