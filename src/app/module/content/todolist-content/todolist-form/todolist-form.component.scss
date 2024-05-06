@@ -1,7 +1,15 @@
 .form-header {
-    padding: 10px 0px 15px 0px;
     display: flex;
-    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    border-bottom: 2px solid #004F9E;
+
+    &-title {
+        font-size: 21px;
+        font-weight: 600;
+        color: #000;
+    }
 }
 
 .form-container {
@@ -9,6 +17,9 @@
     height: 100%;
     margin: 0 auto;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background-color: #ffffff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
     border-radius: 10px;

@@ -17,4 +17,9 @@ export class SelectedTaskComponent {
 
     return this.service.getSelectedTask();
   }
+
+  protected cancellTaskWatch() {
+    
+    this.service.removeSelectedTask();
+  }
 }

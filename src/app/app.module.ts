@@ -7,23 +7,23 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './module/nav-menu/nav-menu.component';
 
-import { SharedButtonsModule } from './module/components/shared-components.module';
+import { SharedComponentsModule } from './module/components/shared-components.module';
+import { SharedUtilsModule } from './module/utils';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
   AddedTasksComponent,
+  ModalTaskComponent,
   SelectedTaskComponent,
   ToDoListComponent,
   ToDoListFormComponent
 } from './module/content';
 
 import {
-  
-  OnclickOutsideDirective,
-  ToolTipDirective
-} from './module/utils';
-
-import { ToDoListService } from './services';
+  NoticeService,
+  ToDoListService
+} from './services';
 
 
 
@@ -34,21 +34,20 @@ import { ToDoListService } from './services';
     ToDoListComponent,
     ToDoListFormComponent,
     AddedTasksComponent,
-    SelectedTaskComponent,
-    ToolTipDirective,
-    OnclickOutsideDirective
+    SelectedTaskComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    SharedButtonsModule,
+    SharedComponentsModule,
+    SharedUtilsModule,
     RouterModule.forRoot([
       { path: '', component: ToDoListComponent, pathMatch: 'full' },
     ])
   ],
-  providers: [ToDoListService],
+  providers: [ToDoListService, NoticeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

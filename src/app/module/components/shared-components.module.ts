@@ -1,23 +1,21 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SaveButtonComponent } from "./buttons/save-button/save-button.component";
-import { DeleteButtonComponent } from './buttons/delete-button/delete-button.component';
-import { ListButtonComponent } from './buttons/list-button/list-button.component';
+import { SharedButtonsModule } from "./buttons";
+import { SharedNoticeModule } from "./notice-content";
+import { SharedModalsModule } from "./modals";
 
 @NgModule({
-    declarations: [
-        SaveButtonComponent,
-        DeleteButtonComponent,
-        ListButtonComponent
-    ],
     imports: [
-        CommonModule
+        CommonModule,
+        SharedButtonsModule,
+        SharedNoticeModule,
+        SharedModalsModule
     ],
     exports: [
-        SaveButtonComponent,
-        DeleteButtonComponent,
-        ListButtonComponent
+        SharedButtonsModule,
+        SharedNoticeModule,
+        SharedModalsModule
     ]
 })
 
-export class SharedButtonsModule { }
+export class SharedComponentsModule { }

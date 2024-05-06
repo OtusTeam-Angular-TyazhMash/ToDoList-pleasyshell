@@ -18,13 +18,18 @@ export class AddedTasksComponent {
         return this.service.getTasks();
     }
 
-    protected deleteTaskById(taskId: number) {
+    protected deleteTaskById(task: TTask) {
 
-        this.service.deleteTask(taskId);
+        this.service.deleteTask(task);
     }
 
     protected showDescription(task: TTask) {
 
         this.service.showDescriptionOfCurrentTask(task);
     };
+
+    protected openEditModal(task: TTask) {
+
+        this.service.OpenTaskModal(task);
+    }
 }

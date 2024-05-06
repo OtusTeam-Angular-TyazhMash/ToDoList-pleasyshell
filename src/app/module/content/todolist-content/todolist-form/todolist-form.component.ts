@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ToDoListService } from "src/app/services";
+import {
+    NoticeService,
+    ToDoListService
+} from "src/app/services";
 
 @Component({
     selector: 'todolist-form',
@@ -9,10 +12,8 @@ import { ToDoListService } from "src/app/services";
 
 export class ToDoListFormComponent implements OnInit {
 
-    constructor(protected service: ToDoListService) { }
+    constructor(protected service: ToDoListService, private notice: NoticeService) { }
 
-    protected newTask: string = '';
-    protected descriptionOfTask: string = '';
 
     protected isLoading: boolean = false;
 
@@ -23,15 +24,8 @@ export class ToDoListFormComponent implements OnInit {
         }, 500)
     };
 
-    protected checkTaskValid(value: string, dopValue?: string) {
+    protected openModal() {
 
-        value !== '' ? this.addTask(value, dopValue) : console.log('Поле названия задачи пустое! Валидация не пройдена.');
-    };
-
-    private addTask(taskname: string, description?: string) {
-
-        this.service.saveTask(taskname, description);
-        this.newTask = '';
-        this.descriptionOfTask = '';
-    };
+        this.service.OpenTaskModal();
+    }
 }

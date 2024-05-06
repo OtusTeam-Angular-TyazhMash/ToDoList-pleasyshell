@@ -1,9 +1,11 @@
-<div class="chosen" [ngClass]="{'selected': task.isShowDescription}" *ngFor="let task of loadTasks()" (click)="showDescription(task)">
+<div class="chosen" [ngClass]="{'selected': task.isShowDescription}" *ngFor="let task of loadTasks()"
+    (dblclick)="showDescription(task)">
     <div class="info">
         <p class="heading">{{task.Id}}</p>
         <p class="heading">{{task.TaskName}}</p>
     </div>
     <div class="chosen-manage-block">
-        <delete-button title="Удалить" toolTip (click)="deleteTaskById(task.Id)"></delete-button>
+        <edit-button (click)="openEditModal(task)"></edit-button>
+        <delete-button title="Удалить" toolTip (click)="deleteTaskById(task)"></delete-button>
     </div>
 </div>

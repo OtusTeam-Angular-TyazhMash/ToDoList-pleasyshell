@@ -1,12 +1,20 @@
 import { Injectable } from "@angular/core";
 import { initTask } from "src/app/module/content-types";
 import { TTask } from "src/app/module/content-types/task-types/task.type";
+import { NoticeService } from "../notice/notice.service";
 
 @Injectable()
 
 export class ToDoListService {
 
+    constructor(private notice: NoticeService) { }
+
+
     private selectedTask: TTask = initTask();
+    private dataTask: TTask = initTask();
+
+    private isOpen: boolean = false;
+
 
     private localAddedTasks: TTask[] = [
         {
@@ -35,6 +43,43 @@ export class ToDoListService {
         }
     ];
 
+
+    private saveTask(currentTask: TTask) {
+
+        const tasks = this.localAddedTasks;
+        const notice = this.notice;
+        const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
+
+        tasks.push({
+            Id: findMaxTaskId + 1,
+            TaskName: currentTask.TaskName,
+            Description: currentTask.Description
+        });
+        this.isOpen = false;
+        this.dataTask = initTask();
+        notice.success('Успешно добавлена задача: ', `${currentTask.TaskName}`);
+
+        console.log('Добавить новую задачу =>', findMaxTaskId + 1, currentTask.TaskName);
+    };
+
+    private editTask(currentTask: TTask) {
+
+        const editedTask = this.localAddedTasks.find(task => task.Id === currentTask.Id);
+        const notice = this.notice;
+
+        if (editedTask) {
+
+            editedTask.TaskName = currentTask.TaskName;
+            editedTask.Description = currentTask.Description;
+
+            this.isOpen = false;
+            this.dataTask = initTask();
+            notice.edit('Редактирована задача: ', `${currentTask.TaskName}`);
+
+            console.log('Редактирована задача =>', currentTask.TaskName);
+        };
+    };
+
     public getTasks(): TTask[] {
 
         return [...this.localAddedTasks];
@@ -45,31 +90,32 @@ export class ToDoListService {
         return this.selectedTask;
     };
 
-    public saveTask(taskname: string, description?: string) {
+    public getTaskModalState() : boolean {
 
-        const tasks = this.localAddedTasks;
+        return this.isOpen;
+    }
 
-        const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
+    public getDataForModalTask(): TTask {
 
-        tasks.push({
-            Id: findMaxTaskId + 1,
-            TaskName: taskname,
-            Description: description
-        });
+        return this.dataTask;
+    };
+    public checkMode(currentTask: TTask) {
 
-        console.log('Добавить новую задачу =>', findMaxTaskId + 1, taskname);
+        currentTask.Id !== 0 ? this.editTask(currentTask) : this.saveTask(currentTask);
     };
 
-    public deleteTask(taskId: number) {
+    public deleteTask(currentTask: TTask) {
 
         const tasks = this.localAddedTasks;
+        const notice = this.notice;
 
-        const index = tasks.findIndex(task => task.Id === taskId);
+        const index = tasks.findIndex(task => task.Id === currentTask.Id);
 
         if (index !== -1) {
             tasks.splice(index, 1);
+            notice.delete('Удалена задача: ', `${currentTask.TaskName}`);
 
-            console.log('Удалить выбранную задачу по Id =>', taskId);
+            console.log('Удалить выбранную задачу по Id =>', currentTask.Id);
         };
     };
 
@@ -77,15 +123,22 @@ export class ToDoListService {
 
         const tasks = this.localAddedTasks;
 
-        tasks.forEach(x => {
+        if (task.isShowDescription) {
 
-            if (x !== task) {
-                x.isShowDescription = false;
-            };
-        })
-        task.isShowDescription = !task.isShowDescription;
+            this.removeSelectedTask();
 
-        this.selectedTask = task;
+        } else {
+
+            tasks.forEach(x => {
+
+                if (x !== task) {
+                    x.isShowDescription = false;
+                };
+            })
+            task.isShowDescription = !task.isShowDescription;
+
+            this.selectedTask = task;
+        };
     };
 
     public removeSelectedTask() {
@@ -93,12 +146,29 @@ export class ToDoListService {
         const tasks = this.localAddedTasks;
 
         tasks.forEach(x => {
-            
+
             if (x === this.selectedTask) {
                 x.isShowDescription = false;
             }
         })
 
         this.selectedTask = initTask();
-    }
+    };
+
+
+
+    public OpenTaskModal(task?: TTask) {
+
+        if (!task) {
+            task = initTask();
+        }
+        this.dataTask = { ...task };
+        this.isOpen = true;
+    };
+
+    public CloseTaskModal() {
+
+        this.isOpen = false;
+        this.dataTask = initTask();
+    };
 }
