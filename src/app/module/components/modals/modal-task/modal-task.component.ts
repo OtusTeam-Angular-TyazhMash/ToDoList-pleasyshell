@@ -20,7 +20,7 @@ export class ModalTaskComponent {
 
 
   protected dataTask: TTask = this.getData();
-  
+
 
   protected getData(): TTask {
 
@@ -56,7 +56,7 @@ export class ModalTaskComponent {
 
   protected Close() {
 
-    this.service.CloseTaskModal();
+    this.service.closeTaskModal();
   };
 
 }

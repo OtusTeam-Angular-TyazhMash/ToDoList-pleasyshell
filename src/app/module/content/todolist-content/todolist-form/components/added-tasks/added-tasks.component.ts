@@ -30,6 +30,6 @@ export class AddedTasksComponent {
 
     protected openEditModal(task: TTask) {
 
-        this.service.OpenTaskModal(task);
+        this.service.openTaskModal(task);
     }
 }

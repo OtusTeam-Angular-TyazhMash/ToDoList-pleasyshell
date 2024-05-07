@@ -156,7 +156,7 @@ export class ToDoListService {
         this.selectedTask = initTask();
     };
 
-    public OpenTaskModal(task?: TTask) {
+    public openTaskModal(task?: TTask) {
 
         if (!task) {
             task = initTask();
@@ -165,7 +165,7 @@ export class ToDoListService {
         this.isOpen = true;
     };
 
-    public CloseTaskModal() {
+    public closeTaskModal() {
 
         this.isOpen = false;
         this.dataTask = initTask();

@@ -26,6 +26,6 @@ export class ToDoListFormComponent implements OnInit {
 
     protected openModal() {
 
-        this.service.OpenTaskModal();
+        this.service.openTaskModal();
     }
 }
