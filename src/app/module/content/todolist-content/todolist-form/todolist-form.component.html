@@ -1,15 +1,10 @@
+<modal-task></modal-task>
 <div class="form-container">
     <div class="form-header">
-        <h4>Запланированные задачи</h4>
+        <alternative-add-button (click)="openModal()"></alternative-add-button>
+        <p class="form-header-title">Запланированные задачи</p>
     </div>
     <form class="form-container-body">
-        <div class="add-task-block">
-            <div class="input-container">
-                <input title="" type="text" class="input-style" [(ngModel)]="newTask" name="newTask" required>
-                <label class="placeholder-prompt">Новая задача</label>
-            </div>
-            <save-button title="Добавить" (click)="checkTaskValid(newTask)" [isDisable]="!newTask"></save-button>
-        </div>
         <div class="container-chosen">
             <div *ngIf="isLoading; else loader">
                 <added-tasks></added-tasks>

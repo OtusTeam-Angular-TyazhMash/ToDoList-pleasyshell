@@ -1,4 +1,6 @@
 export type TTask = {
     Id: number,
-    TaskName: string
+    TaskName: string,
+    Description?: string;
+    isShowDescription?: boolean;
 }

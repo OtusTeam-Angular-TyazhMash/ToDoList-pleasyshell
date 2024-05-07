@@ -11,6 +11,13 @@
   user-select: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 !important;
+}
+
 body {
   background: #F7FAFC;
   overflow: hidden;
@@ -103,6 +110,7 @@ ul {
 .list-style {
   width: 20px;
   height: 20px;
+  transform: rotate(270deg);
 }
 
 .list-style-open {
@@ -187,9 +195,6 @@ ul {
 /* -----Стилизация повторяющихся иконок */
 
 .icon-abs-style {
-  position: absolute;
-  right: 18px;
-  top: 5px;
   transition: transform 0.15s ease-in-out;
 }
 
@@ -311,6 +316,7 @@ ul {
 .input-container:focus-within .placeholder-prompt,
 .input-style:valid+.placeholder-prompt,
 .description-input:valid+.placeholder-prompt,
+.description-input-default:valid+.placeholder-prompt,
 .input-with-table:valid+.placeholder-prompt,
 .input-with-chose:valid+.placeholder-prompt {
   background-color: #fff;
@@ -347,6 +353,7 @@ ul {
 
 .input-style:focus,
 .description-input:focus,
+.description-input-default:focus,
 .input-with-chose:focus {
   transition: 0.4s;
   border: 1px solid rgba(0, 79, 158, 0.582);
@@ -362,10 +369,18 @@ ul {
 
 .description-input {
   width: 100%;
-  height: 160px;
   border: 1px solid #eee;
   border-radius: 5px;
   transition: 0.2s;
+  height: calc(100vh - 258px);
+
+  &-default {
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: 0.2s;
+    height: 300px;
+  }
 }
 
 .description-input::-webkit-scrollbar {
@@ -377,6 +392,19 @@ ul {
 }
 
 .description-input::-webkit-scrollbar-thumb {
+  background-color: #004F9E;
+  border-radius: 5px;
+}
+
+.description-input-default::-webkit-scrollbar {
+  width: 5px;
+}
+
+.description-input-default::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.description-input-default::-webkit-scrollbar-thumb {
   background-color: #004F9E;
   border-radius: 5px;
 }
