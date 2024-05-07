@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalTaskComponent } from '.';
 import { SharedButtonsModule } from '../buttons';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { SharedButtonsModule } from '../buttons';
   ],
   imports: [
     CommonModule,
-    SharedButtonsModule
+    SharedButtonsModule,
+    FormsModule
   ],
   exports: [
     ModalTaskComponent

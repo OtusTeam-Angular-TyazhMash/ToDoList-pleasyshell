@@ -7,12 +7,12 @@
         <div class="modal-body">
             <div class="add-task-block">
                 <div class="input-container">
-                    <input title="" type="text" class="input-style" value="{{getData().TaskName}}"
+                    <input title="" type="text" class="input-style" [ngModel]="getData().TaskName"
                         (keyup)="sendTaskName($event)" required>
                     <label class="placeholder-prompt">Название</label>
                 </div>
                 <div class="input-container">
-                    <textarea title="" class="description-input-default" value="{{getData().Description}}"
+                    <textarea title="" class="description-input-default" [ngModel]="getData().Description"
                         (keyup)="sendDescription($event)" required></textarea>
                     <label class="placeholder-prompt">Описание</label>
                 </div>

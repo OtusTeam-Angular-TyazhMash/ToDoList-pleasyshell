@@ -99,6 +99,7 @@ export class ToDoListService {
 
         return this.dataTask;
     };
+    
     public checkMode(currentTask: TTask) {
 
         currentTask.Id !== 0 ? this.editTask(currentTask) : this.saveTask(currentTask);

@@ -19,6 +19,9 @@ export class ModalTaskComponent {
   constructor(protected service: ToDoListService, private notice: NoticeService) { }
 
 
+  protected dataTask: TTask = this.getData();
+  
+
   protected getData(): TTask {
 
     return this.service.getDataForModalTask();
