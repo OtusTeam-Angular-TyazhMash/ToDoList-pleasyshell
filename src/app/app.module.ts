@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
   AddedTasksComponent,
-  ModalTaskComponent,
   SelectedTaskComponent,
   ToDoListComponent,
   ToDoListFormComponent
