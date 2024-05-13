@@ -6,7 +6,8 @@ import { Directive, HostListener } from '@angular/core';
 export class DisableTypingDirective {
 
     @HostListener('keydown', ['$event'])
-    onKeyDown(event: KeyboardEvent) {
+
+    protected onKeyDown(event: KeyboardEvent) {
         event.preventDefault();
     }
 }

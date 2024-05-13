@@ -10,7 +10,7 @@ export class OnclickOutsideDirective {
 
   @HostListener('document:click', ['$event'])
 
-  protected Click(event: MouseEvent) {
+  protected click(event: MouseEvent) {
 
     const onClickOutSide = this.elem.nativeElement.contains(event.target);
 
