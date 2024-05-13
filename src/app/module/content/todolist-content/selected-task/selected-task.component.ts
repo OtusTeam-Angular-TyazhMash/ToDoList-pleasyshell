@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TTask, initTask } from 'src/app/module/content-types';
 import { ToDoListService } from 'src/app/services';
 
 @Component({
@@ -9,7 +8,7 @@ import { ToDoListService } from 'src/app/services';
 })
 export class SelectedTaskComponent {
 
-  
+
   constructor(protected service: ToDoListService) { }
 
 
@@ -19,7 +18,7 @@ export class SelectedTaskComponent {
   }
 
   protected cancellTaskWatch() {
-    
+
     this.service.removeSelectedTask();
   }
 }

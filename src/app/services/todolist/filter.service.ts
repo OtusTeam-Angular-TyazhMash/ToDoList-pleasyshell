@@ -21,11 +21,11 @@ export class FilterService {
         return this.filter.FilterContent;
     };
 
-
     public getFilterValue(): string {
 
         return this.filterByStatus;
     };
+    
 
     public openFilter(): boolean {
 

@@ -123,8 +123,8 @@ export class ToDoListService {
     public changeTaskStatus(event: any, currentTask: TTask) {
 
         const tasks = this.localAddedTasks;
-        const isChecked = event.target.checked;
         const editedTaskStatus = tasks.find(task => task.Id === currentTask.Id);
+        const isChecked = event.target.checked;
 
         if (editedTaskStatus && isChecked) {
 

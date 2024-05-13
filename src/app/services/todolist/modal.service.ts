@@ -74,6 +74,7 @@ export class ModalService {
 
         return this.dataTask;
     };
+    
 
     public checkMode(currentTask: TTask) {
 
