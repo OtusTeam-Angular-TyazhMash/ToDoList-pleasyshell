@@ -11,12 +11,12 @@
                     <label class="placeholder-prompt">Описание</label>
                 </div>
             </div>
-            <div class="manage-cancell" (click)="cancellTaskWatch()">
-                <cancell-button></cancell-button>
+            <div class="manage-cancell">
+                <cancell-button (click)="cancellTaskWatch()"></cancell-button>
             </div>
         </div>
     </ng-container>
     <ng-template #noIdText>
-        <p class="no-info">Нажмите двойным щелком мыши по задаче, чтобы посмотреть детали</p>
+        <p class="no-info">Кликните левой кнопкой мыши по задаче, чтобы посмотреть её детали</p>
     </ng-template>
 </div>

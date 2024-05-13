@@ -110,13 +110,12 @@ ul {
 .list-style {
   width: 20px;
   height: 20px;
-  transform: rotate(270deg);
 }
 
 .list-style-open {
   width: 20px;
   height: 20px;
-  rotate: 180deg;
+  transform: rotate(180deg);
 }
 
 .list-input {
@@ -133,8 +132,6 @@ ul {
 .checkbox-container {
   display: flex;
   justify-content: center;
-  width: 45px;
-  padding: 10px 10px;
   cursor: pointer;
 }
 
@@ -196,6 +193,9 @@ ul {
 
 .icon-abs-style {
   transition: transform 0.15s ease-in-out;
+  position: absolute;
+  right: 18px;
+  top: 5px;
 }
 
 .icon-fix {

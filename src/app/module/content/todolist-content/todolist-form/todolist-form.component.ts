@@ -1,18 +1,21 @@
 import { Component, OnInit } from "@angular/core";
+import { TFilter, TFilterTask } from "src/app/module/content-types/task-types/filter.type";
+import { openList } from "src/app/module/utils/animations";
 import {
-    NoticeService,
-    ToDoListService
+    FilterService,
+    ModalService
 } from "src/app/services";
 
 @Component({
     selector: 'todolist-form',
     templateUrl: './todolist-form.component.html',
-    styleUrls: ['./todolist-form.component.scss']
+    styleUrls: ['./todolist-form.component.scss'],
+    animations: [openList]
 })
 
 export class ToDoListFormComponent implements OnInit {
 
-    constructor(protected service: ToDoListService, private notice: NoticeService) { }
+    constructor(private modalSer: ModalService, private filterSer: FilterService) { }
 
 
     protected isLoading: boolean = false;
@@ -26,6 +29,38 @@ export class ToDoListFormComponent implements OnInit {
 
     protected openModal() {
 
-        this.service.openTaskModal();
-    }
+        this.modalSer.openTaskModal();
+    };
+
+
+    protected openFilterList(): boolean {
+
+        return this.filterSer.openFilter();
+    };
+
+    protected openList(): string {
+
+        return this.filterSer.listStyle();
+    };
+
+
+    protected filterStatus(): boolean {
+
+        return this.filterSer.getFilterStatus();
+    };
+
+    protected filterValue(): string {
+
+        return this.filterSer.getFilterValue();
+    };
+
+    protected filterList(): TFilterTask[] {
+
+        return this.filterSer.getFilterContent();
+    };
+
+    protected activateCurrentFilter(status: string) {
+
+        this.filterSer.setTaskFilter(status);
+    };
 }

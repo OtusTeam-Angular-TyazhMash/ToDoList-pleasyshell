@@ -20,10 +20,12 @@ import {
 } from './module/content';
 
 import {
+  FakeApiService,
+  FilterService,
+  ModalService,
   NoticeService,
   ToDoListService
 } from './services';
-
 
 
 @NgModule({
@@ -46,7 +48,11 @@ import {
       { path: '', component: ToDoListComponent, pathMatch: 'full' },
     ])
   ],
-  providers: [ToDoListService, NoticeService],
+  providers: [
+    ToDoListService, NoticeService,
+    ModalService, FilterService,
+    FakeApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

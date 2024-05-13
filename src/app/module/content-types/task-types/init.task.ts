@@ -3,6 +3,7 @@ export const initTask = () => {
         Id: 0,
         TaskName: '',
         Description: '',
-        isShowDescription: false
+        isShowDescription: false,
+        id: ''
     };
 }

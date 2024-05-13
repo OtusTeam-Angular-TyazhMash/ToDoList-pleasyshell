@@ -5,14 +5,26 @@
         <p class="form-header-title">Запланированные задачи</p>
     </div>
     <form class="form-container-body">
+        <div class="input-container">
+            <input (click)="openFilterList()" [ngModel]="filterValue()" name="filter" title="" type="text"
+                class="input-style list-input" required disableTyping>
+            <label class="placeholder-prompt">Фильтр</label>
+            <img class="icon-abs-style list-style" [ngStyle]="{'transform': openList()}" src="assets/images/list.svg">
+            <div class="modal-list" *ngIf="filterStatus()" @showList>
+                <div class="list">
+                    <div class="list-container" *ngFor="let filter of filterList()"
+                        (click)="activateCurrentFilter(filter.FilterName)">
+                        <p class="item-main">{{filter.FilterName}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-chosen">
             <div *ngIf="isLoading; else loader">
                 <added-tasks></added-tasks>
             </div>
             <ng-template class="search-loading" #loader>
-                <div class="search-loading-block">
-                    <img src="assets/images/load.gif">
-                </div>
+                <loading-spinner></loading-spinner>
             </ng-template>
         </div>
     </form>

@@ -2,61 +2,58 @@ import { Component } from '@angular/core';
 import { TTask } from 'src/app/module/content-types';
 import { openWindow } from 'src/app/module/utils/animations';
 import {
-  NoticeService,
-  ToDoListService
+    ModalService,
+    NoticeService
 } from 'src/app/services';
 
 @Component({
-  selector: 'modal-task',
-  templateUrl: './modal-task.component.html',
-  styleUrls: ['./modal-task.component.scss',
-    '../../styles/button-styles.scss'],
-  animations: [openWindow]
+    selector: 'modal-task',
+    templateUrl: './modal-task.component.html',
+    styleUrls: ['./modal-task.component.scss',
+        '../../styles/button-styles.scss'],
+    animations: [openWindow]
 })
 
 export class ModalTaskComponent {
 
-  constructor(protected service: ToDoListService, private notice: NoticeService) { }
+    constructor(private service: ModalService, private notice: NoticeService) { }
 
 
-  protected dataTask: TTask = this.getData();
+    protected getData(): TTask {
 
+        return this.service.getDataForModalTask();
+    };
 
-  protected getData(): TTask {
+    protected modalState(): boolean {
 
-    return this.service.getDataForModalTask();
-  };
+        return this.service.getTaskModalState();
+    };
 
-  protected modalState(): boolean {
+    protected sendTaskName(event: KeyboardEvent) {
 
-    return this.service.getTaskModalState();
-  }
+        const { value } = event.target as HTMLInputElement;
 
-  protected sendTaskName(event: KeyboardEvent) {
+        this.getData().TaskName = value;
+    };
 
-    const { value } = event.target as HTMLInputElement;
+    protected sendDescription(event: KeyboardEvent) {
 
-    this.getData().TaskName = value;
-  };
+        const { value } = event.target as HTMLInputElement;
 
-  protected sendDescription(event: KeyboardEvent) {
+        this.getData().Description = value;
+    };
 
-    const { value } = event.target as HTMLInputElement;
+    protected checkTaskValid(task: TTask) {
 
-    this.getData().Description = value;
-  };
+        const notice = this.notice;
+        const service = this.service;
 
-  protected checkTaskValid(task: TTask) {
+        this.getData().TaskName !== '' ? service.checkMode(task) : notice.warning('Введите название задачи!');
+    };
 
-    const notice = this.notice;
-    const service = this.service;
+    protected Close() {
 
-    this.getData().TaskName !== '' ? service.checkMode(task) : notice.warning('Введите название задачи!');
-  };
-
-  protected Close() {
-
-    this.service.closeTaskModal();
-  };
+        this.service.closeTaskModal();
+    };
 
 }

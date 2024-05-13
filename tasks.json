@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "Id": 1,
+      "TaskName": "Помыть посуду",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "isCompleted": false,
+      "id": "10d2"
+    },
+    {
+      "Id": 2,
+      "TaskName": "Приготовить ужин",
+      "Description": "",
+      "isCompleted": true,
+      "id": "2d46"
+    },
+    {
+      "Id": 3,
+      "TaskName": "Погулять в парке",
+      "Description": "А то все время работа и работа...",
+      "isCompleted": true,
+      "id": "5fe8"
+    },
+    {
+      "Id": 4,
+      "TaskName": "Поговорить с Ларисой",
+      "Description": "О повышении ЗП",
+      "isCompleted": false,
+      "id": "aa4a"
+    },
+    {
+      "Id": 5,
+      "TaskName": "Работать",
+      "Description": "Деньги это круто",
+      "isCompleted": true,
+      "id": "e7e7"
+    }
+  ]
+}

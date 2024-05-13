@@ -3,4 +3,6 @@ export type TTask = {
     TaskName: string,
     Description?: string;
     isShowDescription?: boolean;
+    isCompleted?: boolean,
+    id?: string
 }
