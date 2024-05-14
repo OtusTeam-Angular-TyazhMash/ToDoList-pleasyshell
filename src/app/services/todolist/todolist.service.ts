@@ -97,11 +97,12 @@ export class ToDoListService {
             tasks.forEach(x => {
 
                 if (x !== task) {
+
                     x.isShowDescription = false;
                 };
             })
-            task.isShowDescription = true;
 
+            task.isShowDescription = true;
             this.selectedTask = task;
         };
     };
@@ -113,6 +114,7 @@ export class ToDoListService {
         tasks.forEach(x => {
 
             if (x === this.selectedTask) {
+
                 x.isShowDescription = false;
             }
         })
