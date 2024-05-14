@@ -1,23 +1,30 @@
+<modal-task></modal-task>
 <div class="form-container">
     <div class="form-header">
-        <h4>Запланированные задачи</h4>
+        <alternative-add-button (click)="openModal()"></alternative-add-button>
+        <p class="form-header-title">Запланированные задачи</p>
     </div>
     <form class="form-container-body">
-        <div class="add-task-block">
-            <div class="input-container">
-                <input title="" type="text" class="input-style" [(ngModel)]="newTask" name="newTask" required>
-                <label class="placeholder-prompt">Новая задача</label>
+        <div class="input-container">
+            <input (click)="openFilterList()" [ngModel]="filterValue()" name="filter" title="" type="text"
+                class="input-style list-input" required disableTyping>
+            <label class="placeholder-prompt">Фильтр</label>
+            <img class="icon-abs-style list-style" [ngStyle]="{'transform': openList()}" src="assets/images/list.svg">
+            <div class="modal-list" *ngIf="filterStatus()" @showList>
+                <div class="list">
+                    <div class="list-container" *ngFor="let filter of filterList()"
+                        (click)="activateCurrentFilter(filter.FilterName)">
+                        <p class="item-main">{{filter.FilterName}}</p>
+                    </div>
+                </div>
             </div>
-            <save-button title="Добавить" (click)="checkTaskValid(newTask)" [isDisable]="!newTask"></save-button>
         </div>
         <div class="container-chosen">
             <div *ngIf="isLoading; else loader">
                 <added-tasks></added-tasks>
             </div>
             <ng-template class="search-loading" #loader>
-                <div class="search-loading-block">
-                    <img src="assets/images/load.gif">
-                </div>
+                <loading-spinner></loading-spinner>
             </ng-template>
         </div>
     </form>
