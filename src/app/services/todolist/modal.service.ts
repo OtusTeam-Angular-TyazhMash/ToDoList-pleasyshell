@@ -56,6 +56,7 @@ export class ModalService {
                 this.isOpen = false;
 
                 this.todolist.updateTaskList();
+                this.todolist.removeSelectedTask();
                 this.dataTask = initTask();
                 notice.edit('Редактирована задача: ', `${currentTask.TaskName}`);
 
@@ -74,7 +75,7 @@ export class ModalService {
 
         return this.dataTask;
     };
-    
+
 
     public checkMode(currentTask: TTask) {
 

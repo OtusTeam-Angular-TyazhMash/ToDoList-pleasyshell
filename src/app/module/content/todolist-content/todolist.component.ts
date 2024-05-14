@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NoticeService } from 'src/app/services';
 
 @Component({
   selector: 'todolist-content',
