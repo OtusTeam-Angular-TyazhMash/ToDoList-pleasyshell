@@ -7,13 +7,26 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './module/nav-menu/nav-menu.component';
 
+import { SharedComponentsModule } from './module/components/shared-components.module';
+import { SharedUtilsModule } from './module/utils';
 
-import { ToDoListComponent } from './module/content';
-import { ToDoListFormComponent } from './module/content/todolist-content/todolist-form/todolist-form.component';
-import { AddedTasksComponent } from './module/content/todolist-content/todolist-form/components/added-tasks/added-tasks.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ToDoListService } from './services';
-import { SharedButtonsModule } from './module/components/buttons/shared-buttons.module';
+import {
+  AddedTasksComponent,
+  SelectedTaskComponent,
+  ToDoListComponent,
+  ToDoListFormComponent
+} from './module/content';
+
+import {
+  FakeApiService,
+  FilterService,
+  ModalService,
+  NoticeService,
+  ToDoListService
+} from './services';
+
 
 
 @NgModule({
@@ -22,18 +35,27 @@ import { SharedButtonsModule } from './module/components/buttons/shared-buttons.
     NavMenuComponent,
     ToDoListComponent,
     ToDoListFormComponent,
-    AddedTasksComponent
+    AddedTasksComponent,
+    SelectedTaskComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    SharedButtonsModule,
+    BrowserAnimationsModule,
+    SharedComponentsModule,
+    SharedUtilsModule,
     RouterModule.forRoot([
-      { path: '', component: ToDoListComponent, pathMatch: 'full' },
+      { path: '', redirectTo: 'tasks', pathMatch: 'full' },
+      { path: 'tasks', component: ToDoListComponent, children: [{ path: ':id', component: SelectedTaskComponent }] },
+      { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
-  providers: [ToDoListService],
+  providers: [
+    ToDoListService, NoticeService,
+    ModalService, FilterService,
+    FakeApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
