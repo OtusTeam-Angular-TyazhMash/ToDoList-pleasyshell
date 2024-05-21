@@ -28,6 +28,7 @@ import {
 } from './services';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,9 @@ import {
     SharedComponentsModule,
     SharedUtilsModule,
     RouterModule.forRoot([
-      { path: '', component: ToDoListComponent, pathMatch: 'full' },
+      { path: '', redirectTo: 'tasks', pathMatch: 'full' },
+      { path: 'tasks', component: ToDoListComponent, children: [{ path: ':id', component: SelectedTaskComponent }] },
+      { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
   providers: [

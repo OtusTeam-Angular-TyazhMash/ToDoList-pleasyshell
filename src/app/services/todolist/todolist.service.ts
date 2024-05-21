@@ -6,6 +6,7 @@ import { TTask } from "src/app/module/content-types/task-types/task.type";
 import { NoticeService } from "../notice/notice.service";
 import { FilterService } from "./filter.service";
 import { FakeApiService } from "../api/fake-api.service";
+import { Router } from "@angular/router";
 
 @Injectable()
 
@@ -14,7 +15,8 @@ export class ToDoListService {
     constructor(
         private notice: NoticeService,
         private filter: FilterService,
-        private api: FakeApiService
+        private api: FakeApiService,
+        private router: Router
     ) {
         this.api.getTasksFromServer().subscribe((tasks: TTask[]) => {
             this.localAddedTasks = tasks;
@@ -105,6 +107,8 @@ export class ToDoListService {
             task.isShowDescription = true;
             this.selectedTask = task;
         };
+
+        this.router.navigate(['tasks', task.Id]);
     };
 
     public removeSelectedTask() {
@@ -120,6 +124,7 @@ export class ToDoListService {
         })
 
         this.selectedTask = initTask();
+        this.router.navigate(['tasks']);
     };
 
     public changeTaskStatus(event: any, currentTask: TTask) {
