@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
 import { timer } from "rxjs";
-import { TNotice } from "src/app/module/components/notice-content";
+import { TNotice } from "src/app/module-components/notice-content";
 import * as uuid from "uuid";
 
 @Injectable()
 export class NoticeService {
 
     public NoticeContent: TNotice[] = [];
-    
+
 
     public getNotice(): TNotice[] {
 

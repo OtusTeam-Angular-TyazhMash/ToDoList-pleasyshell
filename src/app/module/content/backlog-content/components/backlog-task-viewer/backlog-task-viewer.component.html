@@ -1,0 +1,32 @@
+<div class="selected-task-body">
+    <ng-container *ngIf="getTask().Id > 0; else noIdText">
+        <div class="selected-task-body-header">
+            <p>Просмотр задачи</p>
+        </div>
+        <div class="selected-task-body-container">
+            <div class="input-container">
+                <input title="" value="{{getTask().TaskName}}" class="input-style" type="text" required>
+                <label class="placeholder-prompt">Название</label>
+            </div>
+            <div class="input-container">
+                <input title="" value="{{getTask().TaskStatus.Status}}" class="input-style" type="text" required>
+                <label class="placeholder-prompt">Статус</label>
+            </div>
+            <div class="selected-task-body-description">
+                <div class="input-container">
+                    <textarea title="" class="description-input" required
+                        disableTyping>{{getTask().Description}}</textarea>
+                    <label class="placeholder-prompt">Описание</label>
+                </div>
+            </div>
+            <div class="manage-task">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noIdText>
+        <p class="no-info">Кликните левой кнопкой мыши по задаче, чтобы посмотреть её детали</p>
+    </ng-template>
+</div>

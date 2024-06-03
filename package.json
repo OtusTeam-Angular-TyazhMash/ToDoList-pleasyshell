@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 44431",
+    "start": "concurrently \"npm run json-server\" \"ng serve\"",
     "build": "ng build",
     "build:ssr": "ng run ToDoList:server:dev",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "json-server": "json-server --watch tasks.json"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/router": "^16.2.12",
     "@types/uuid": "^9.0.8",
     "bootstrap": "^5.2.3",
+    "concurrently": "^8.2.2",
     "jquery": "^3.6.3",
     "json-server": "^1.0.0-alpha.23",
     "lodash": "^4.17.21",
@@ -30,6 +32,7 @@
     "run-script-os": "^1.1.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
+    "uuid": "^9.0.1",
     "zone.js": "~0.13.3"
   },
   "devDependencies": {

@@ -3,6 +3,11 @@ export type TTask = {
     TaskName: string,
     Description?: string;
     isShowDescription?: boolean;
-    isCompleted?: boolean,
+    TaskStatus: TStatus
     id?: string
+}
+
+export type TStatus = {
+    Id: number,
+    Status: string
 }

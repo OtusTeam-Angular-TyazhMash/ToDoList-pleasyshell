@@ -1,5 +1,7 @@
 <body>
-  <app-nav-menu></app-nav-menu>
-  <notice></notice>
-  <router-outlet></router-outlet>
+  <nav-header></nav-header>
+  <nav-sidebar></nav-sidebar>
+  <main [@routerTransition]="getState(state)">
+    <router-outlet #state="outlet"></router-outlet>
+  </main>
 </body>

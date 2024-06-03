@@ -24,7 +24,15 @@ export class FakeApiService {
 
         const updateUrl = `${this.url}/${task.id}`;
 
-        return this.http.put(updateUrl, task);
+        const formattedTask: TTask = {
+
+            Id: task.Id,
+            TaskName: task.TaskName,
+            Description: task.Description,
+            TaskStatus: task.TaskStatus
+        };
+
+        return this.http.put(updateUrl, formattedTask);
     };
 
     public saveTaskOnServer(task: TTask) {

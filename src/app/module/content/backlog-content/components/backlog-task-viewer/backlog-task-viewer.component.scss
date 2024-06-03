@@ -1,0 +1,46 @@
+.selected-task-body {
+    width: 75vh;
+    height: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    position: relative;
+
+    &-header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0px 15px 0px;
+        font-size: 20px;
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &-description {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.no-info {
+    color: #cacaca;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.manage-task {
+    display: flex;
+    align-self: flex-end;
+    gap: 15px;
+}

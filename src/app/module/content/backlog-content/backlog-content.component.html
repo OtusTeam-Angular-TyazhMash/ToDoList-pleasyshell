@@ -1,0 +1,12 @@
+<notice></notice>
+<div class="scrolling-content">
+    <section class="page">
+        <page-header-setter title="Бэклог" [isNeedButton]="true"
+            [buttonEvent]="addTask.bind(this)"></page-header-setter>
+        <div class="wrapper-center">
+            <backlog-task-list></backlog-task-list>
+            <backlog-task-viewer></backlog-task-viewer>
+        </div>
+    </section>
+    <page-footer-setter></page-footer-setter>
+</div>
