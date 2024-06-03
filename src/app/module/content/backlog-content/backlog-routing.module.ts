@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BacklogContentComponent } from './backlog-content.component';
+import { BacklogTaskViewerComponent } from './components/backlog-task-viewer/backlog-task-viewer.component';
 
 
 const routes: Routes =
@@ -11,7 +12,7 @@ const routes: Routes =
             children: [
                 {
                     path: ':id',
-                    component: BacklogContentComponent
+                    component: BacklogTaskViewerComponent
                 }
             ],
             data: { state: 'backlog' }

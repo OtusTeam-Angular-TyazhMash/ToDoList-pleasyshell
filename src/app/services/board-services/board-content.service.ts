@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TTask } from 'src/app/module/content-types';
 import { FakeApiService } from '../api/fake-api.service';
-import { NoticeService } from '../notice/notice.service';
+import { BoardFilterService } from './board-filter.service';
+import { BacklogContentService } from '../backlog-services/backlog-content.service';
 
 @Injectable()
+
 export class BoardContentService {
 
 
     constructor(
         private api: FakeApiService,
-        private router: Router,
-        private notice: NoticeService
+        private boardFilterService: BoardFilterService,
+        private backlogContentService: BacklogContentService,
+        private router: Router
     ) {
         this.api.getTasksFromServer().subscribe((tasks: TTask[]) => {
 
@@ -23,9 +26,34 @@ export class BoardContentService {
     private boardTable: TTask[] = [];
 
 
-    public getBoardTasks(): TTask[] {
+    public filterData(): TTask[] {
 
-        return this.boardTable;
+        const filterVal = this.boardFilterService.getFilterValue();
+        const tasks = this.boardTable;
+
+        if (filterVal === 'Все') {
+
+            return tasks;
+
+        } else if (filterVal === 'Выполнены') {
+
+            return tasks.filter(task => task.TaskStatus.Id !== 1);
+
+        } else if (filterVal === 'Не выполнены') {
+
+            return tasks.filter(task => task.TaskStatus.Id === 1);
+
+        } else {
+
+            return tasks;
+        };
+    };
+
+
+    public openTaskDetail(task: TTask) {
+
+        this.backlogContentService.setDetailTask(task);
+        this.router.navigate(['backlog', task.Id]);
     };
 
 };

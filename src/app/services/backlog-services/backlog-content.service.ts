@@ -15,6 +15,7 @@ export class BacklogContentService {
         private notice: NoticeService
     ) {
         this.api.getTasksFromServer().subscribe((tasks: TTask[]) => {
+            
             this.localAddedTasks = tasks;
         });
     };
@@ -32,6 +33,13 @@ export class BacklogContentService {
     public getSelectedTask(): TTask {
 
         return this.selectedTask;
+    };
+
+
+    public setDetailTask(task: TTask) {
+
+        this.showDescriptionOfCurrentTask(task)
+        this.selectedTask = task;
     };
 
 
