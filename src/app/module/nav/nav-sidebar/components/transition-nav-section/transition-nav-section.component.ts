@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './transition-nav-section.component.html',
   styleUrls: ['../../nav-sidebar-styles.scss']
 })
+
 export class TransitionNavSectionComponent {
 
 }

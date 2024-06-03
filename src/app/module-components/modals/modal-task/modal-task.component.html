@@ -12,7 +12,22 @@
                     <label class="placeholder-prompt">Название</label>
                 </div>
                 <div class="input-container">
-                    <textarea title="" class="description-input-default" [ngModel]="getData().Description"
+                    <input title="" type="text" value="{{getData().TaskStatus.Status}}" class="input-style list-input"
+                        (click)="openList()" required disableTyping>
+                    <label class="placeholder-prompt">Статус</label>
+                    <img class="icon-abs-style list-style" src="assets/images/list.svg"
+                        [ngStyle]="{'transform': listSelected()}">
+                    <div class="modal-list" *ngIf="getStatusListState()" @showList>
+                        <div class="list">
+                            <div class="list-container" *ngFor="let status of getStatuses()"
+                                (click)="onClickStatus(status)">
+                                <p class="item-main">{{status.Status}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <textarea title="" class="description-input default" [ngModel]="getData().Description"
                         (keyup)="sendDescription($event)" required></textarea>
                     <label class="placeholder-prompt">Описание</label>
                 </div>

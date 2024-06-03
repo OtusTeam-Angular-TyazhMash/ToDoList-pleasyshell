@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { TTask } from 'src/app/module/content-types';
 import { BacklogContentService } from 'src/app/services';
+import { BacklogModalService } from 'src/app/services/backlog-services/backlog-modal.service';
 
 @Component({
     selector: 'backlog-task-viewer',
@@ -10,7 +12,8 @@ export class BacklogTaskViewerComponent {
 
 
     constructor(
-        private backlogContentService: BacklogContentService
+        private backlogContentService: BacklogContentService,
+        private backlogModal: BacklogModalService
     ) { }
 
 
@@ -19,10 +22,22 @@ export class BacklogTaskViewerComponent {
         return this.backlogContentService.getSelectedTask();
     };
 
-    
+
     protected cancellTaskWatch() {
 
         this.backlogContentService.removeSelectedTask();
+    };
+
+
+    protected deleteTaskById() {
+
+        this.backlogContentService.deleteTask();
+    };
+
+
+    protected openEditModal() {
+
+        this.backlogModal.openTaskModal();
     };
 
 };

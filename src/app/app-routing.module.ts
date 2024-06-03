@@ -8,8 +8,12 @@ import {
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'backlog',
+        redirectTo: 'board',
         pathMatch: 'full'
+    },
+    {
+        path: 'board',
+        loadChildren: () => import('./module/content/board-content/shared-board.module').then(m => m.SharedBoardModule)
     },
     {
         path: 'backlog',
@@ -17,7 +21,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'boardtasks',
+        redirectTo: 'board',
         pathMatch: 'full'
     }
 ];

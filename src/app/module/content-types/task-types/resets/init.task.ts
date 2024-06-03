@@ -3,6 +3,7 @@ export const resetInitTask = () => {
         Id: 0,
         TaskName: '',
         Description: '',
+        isShowDescription: false,
         TaskStatus: {
             Id: 0,
             Status: ''

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-board-content',
+    selector: 'board-content',
     templateUrl: './board-content.component.html'
 })
 

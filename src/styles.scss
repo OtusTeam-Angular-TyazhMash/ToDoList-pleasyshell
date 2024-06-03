@@ -500,10 +500,12 @@ ul {
 .wrapper {
     min-height: calc(100vh - 60px);
     padding: 20px;
+    transition: 0.2s;
 
     &-table {
         min-height: calc(100vh - 175px);
         padding: 20px;
+        transition: 0.2s;
     }
 
     &-center {
@@ -512,6 +514,7 @@ ul {
         gap: 15px;
         min-height: calc(100vh - 175px);
         padding: 20px;
+        transition: 0.2s;
     }
 }
 
@@ -841,6 +844,11 @@ ul {
     border-radius: 5px;
 }
 
+.disabled {
+    cursor: default;
+    caret-color: #fff;
+}
+
 .invalid-input-chose {
     border-right: 1px solid red !important;
     border-left: 1px solid red !important;
@@ -879,6 +887,14 @@ ul {
     border: 1px solid #eee;
     border-radius: 5px;
     transition: 0.2s;
+
+    &.height {
+        height: calc(100vh - 450px);
+    }
+
+    &.default {
+        height: 360px;
+    }
 }
 
 .description-input::-webkit-scrollbar {

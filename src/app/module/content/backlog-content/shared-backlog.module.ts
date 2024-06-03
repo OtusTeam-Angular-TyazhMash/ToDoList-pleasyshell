@@ -10,6 +10,9 @@ import {
     BacklogTaskViewerComponent
 } from '.';
 
+import { BacklogModalService } from 'src/app/services';
+import { SharedDirectivesModule } from 'src/utils/directives';
+
 
 @NgModule({
     declarations: [
@@ -20,8 +23,10 @@ import {
     imports: [
         CommonModule,
         SharedComponentsModule,
-        BacklogRoutingModule
-    ]
+        BacklogRoutingModule,
+        SharedDirectivesModule
+    ],
+    providers: [BacklogModalService]
 })
 
 export class SharedBacklogModule { }

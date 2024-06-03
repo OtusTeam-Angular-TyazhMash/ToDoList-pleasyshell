@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BacklogModalService } from 'src/app/services';
 
 @Component({
     selector: 'backlog-content',
@@ -9,13 +10,13 @@ export class BacklogContentComponent {
 
 
     constructor(
-
+        private backlogModal: BacklogModalService
     ) { }
 
 
     protected addTask() {
 
-
+        this.backlogModal.openTaskModal();
     };
 
 };

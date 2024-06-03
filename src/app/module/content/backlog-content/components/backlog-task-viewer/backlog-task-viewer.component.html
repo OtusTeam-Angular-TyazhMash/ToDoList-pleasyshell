@@ -5,24 +5,26 @@
         </div>
         <div class="selected-task-body-container">
             <div class="input-container">
-                <input title="" value="{{getTask().TaskName}}" class="input-style" type="text" required>
+                <input disableTyping title="" value="{{getTask().TaskName}}" class="input-style disabled" type="text"
+                    required>
                 <label class="placeholder-prompt">Название</label>
             </div>
             <div class="input-container">
-                <input title="" value="{{getTask().TaskStatus.Status}}" class="input-style" type="text" required>
+                <input disableTyping value="{{getTask().TaskStatus.Status}}" class="input-style disabled" type="text"
+                    required>
                 <label class="placeholder-prompt">Статус</label>
             </div>
             <div class="selected-task-body-description">
                 <div class="input-container">
-                    <textarea title="" class="description-input" required
+                    <textarea disableTyping title="" class="description-input height disabled" required
                         disableTyping>{{getTask().Description}}</textarea>
                     <label class="placeholder-prompt">Описание</label>
                 </div>
             </div>
             <div class="manage-task">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
+                <delete-button-big (click)="deleteTaskById()"></delete-button-big>
+                <edit-button-big (click)="openEditModal()"></edit-button-big>
+                <back-button (click)="cancellTaskWatch()"></back-button>
             </div>
         </div>
     </ng-container>

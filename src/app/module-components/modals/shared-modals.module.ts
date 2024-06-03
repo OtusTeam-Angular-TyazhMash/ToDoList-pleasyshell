@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 import { ModalTaskComponent } from '.';
 import { SharedButtonsModule } from '../buttons';
 import { FormsModule } from '@angular/forms';
+import { SharedDirectivesModule } from 'src/utils/directives';
 
 
 @NgModule({
   declarations: [
-    ModalTaskComponent
+    ModalTaskComponent,
   ],
   imports: [
     CommonModule,
     SharedButtonsModule,
-    FormsModule
+    FormsModule,
+    SharedDirectivesModule
   ],
   exports: [
     ModalTaskComponent

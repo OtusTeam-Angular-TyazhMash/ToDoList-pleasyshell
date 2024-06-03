@@ -12,7 +12,9 @@ export class FakeApiService {
     private url = 'http://localhost:3000/tasks';
 
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient
+    ) { }
 
 
     public getTasksFromServer(): Observable<TTask[]> {
@@ -46,4 +48,5 @@ export class FakeApiService {
 
         return this.http.delete(deleteUrl);
     };
-}
+
+};
