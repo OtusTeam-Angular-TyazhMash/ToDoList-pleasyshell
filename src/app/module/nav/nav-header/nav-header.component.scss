@@ -1,0 +1,23 @@
+.global-header {
+  display: flex;
+  padding: 15px 30px;
+  align-items: center;
+  gap: 60px;
+  background: #004F9E;
+  box-shadow: 0 5px 5px #00000033;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &-title {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+
+p {
+  color: #FFF;
+  cursor: pointer;
+}

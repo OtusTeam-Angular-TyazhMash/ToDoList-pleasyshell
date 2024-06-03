@@ -1,0 +1,39 @@
+<div class="table-container">
+    <div class="filter-container">
+        <div class="input-container">
+            <input (click)="openFilterList()" [ngModel]="filterValue()" title="" type="text"
+                class="input-style list-input" required disableTyping>
+            <label class="placeholder-prompt">Фильтр</label>
+            <img [ngStyle]="{'transform': openList()}" class="icon-abs-style list-style" src="assets/images/list.svg">
+            <div class="modal-list" *ngIf="filterStatus()" @showList>
+                <div class="list">
+                    <div class="list-container" *ngFor="let filter of filterList()"
+                        (click)="activateCurrentFilter(filter.FilterName)">
+                        <p class="item-main">{{filter.FilterName}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Статус</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of getTasks()" (click)="openDetail(task)">
+                <td>{{task.Id}}</td>
+                <td>{{task.TaskName}}</td>
+                <td> <label class="checkbox-container">
+                        <input [ngModel]="task.TaskStatus.Id > 1" type="checkbox" disabled>
+                        <span class="checkmark"></span>
+                    </label></td>
+                <td>{{task.Description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
