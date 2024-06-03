@@ -675,6 +675,10 @@ ul {
     width: 45px;
     padding: 10px 10px;
     cursor: pointer;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    position: absolute;
 }
 
 .checkbox-container input {

@@ -87,16 +87,14 @@ export class BacklogModalService {
     };
 
 
-    public openTaskModal() {
+    public openTaskModal(task?: TTask) {
 
-        let item = this.backlogContentService.getSelectedTask();
+        if (!task) {
 
-        if (!item) {
-
-            item = resetInitTask();
+            task = resetInitTask();
         };
 
-        this.dataTask = { ...item };
+        this.dataTask = { ...task };
         this.isOpen = true;
     };
 

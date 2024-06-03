@@ -35,9 +35,9 @@ export class BacklogTaskViewerComponent {
     };
 
 
-    protected openEditModal() {
+    protected openEditModal(task: TTask) {
 
-        this.backlogModal.openTaskModal();
+        this.backlogModal.openTaskModal(task);
     };
 
 };

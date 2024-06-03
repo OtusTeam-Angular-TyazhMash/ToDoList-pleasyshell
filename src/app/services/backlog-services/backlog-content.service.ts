@@ -106,7 +106,6 @@ export class BacklogContentService {
         })
 
         this.selectedTask = resetInitTask();
-        this.router.navigate(['backlog']);
     };
 
 };
