@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { TTask } from 'src/app/module/content-types';
+import { Observable } from 'rxjs';
 import { BacklogContentService } from 'src/app/services';
+import { TTask } from '../../store';
 
 @Component({
     selector: 'backlog-task-list',
@@ -25,7 +26,7 @@ export class BacklogTaskListComponent {
     };
 
 
-    protected loadTasks(): TTask[] {
+    protected loadTasks(): Observable<TTask[]> {
 
         return this.backlogContentService.getTasks();
     };

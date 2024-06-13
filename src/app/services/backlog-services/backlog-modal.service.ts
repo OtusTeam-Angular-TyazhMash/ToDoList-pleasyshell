@@ -22,51 +22,51 @@ export class BacklogModalService {
 
     private saveTask(currentTask: TTask) {
 
-        const tasks = this.backlogContentService.getTasks();
-        const notice = this.notice;
-        const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
+        // const tasks = this.backlogContentService.getTasks();
+        // const notice = this.notice;
+        // const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
 
-        this.api.saveTaskOnServer({
+        // this.api.saveTaskOnServer({
 
-            Id: findMaxTaskId + 1,
-            TaskName: currentTask.TaskName,
-            TaskStatus: currentTask.TaskStatus,
-            Description: currentTask.Description
+        //     Id: findMaxTaskId + 1,
+        //     TaskName: currentTask.TaskName,
+        //     TaskStatus: currentTask.TaskStatus,
+        //     Description: currentTask.Description
 
-        }).subscribe(() => {
+        // }).subscribe(() => {
 
-            this.isOpen = false;
+        //     this.isOpen = false;
 
-            this.backlogContentService.updateTaskList();
-            this.dataTask = resetInitTask();
+        //     this.backlogContentService.updateTaskList();
+        //     this.dataTask = resetInitTask();
 
-            notice.success('Успешно добавлена задача: ', `${currentTask.TaskName}`);
+        //     notice.success('Успешно добавлена задача: ', `${currentTask.TaskName}`);
 
-            console.log('Добавлена новая задача =>', findMaxTaskId + 1, currentTask.TaskName);
-        })
+        //     console.log('Добавлена новая задача =>', findMaxTaskId + 1, currentTask.TaskName);
+        // })
     };
 
     private editTask(currentTask: TTask) {
 
-        const editedTask = this.backlogContentService.getTasks().find(task => task.Id === currentTask.Id);
-        const notice = this.notice;
+        // const editedTask = this.backlogContentService.getTasks().find(task => task.Id === currentTask.Id);
+        // const notice = this.notice;
 
-        if (editedTask) {
+        // if (editedTask) {
 
-            this.api.updateTaskFromServer(currentTask).subscribe(() => {
+        //     this.api.updateTaskFromServer(currentTask).subscribe(() => {
 
-                this.isOpen = false;
+        //         this.isOpen = false;
 
-                this.backlogContentService.updateTaskList();
-                this.backlogContentService.updateTaskViewer(currentTask);
+        //         this.backlogContentService.updateTaskList();
+        //         this.backlogContentService.updateTaskViewer(currentTask);
 
-                this.dataTask = resetInitTask();
+        //         this.dataTask = resetInitTask();
 
-                notice.edit('Редактирована задача: ', `${currentTask.TaskName}`);
+        //         notice.edit('Редактирована задача: ', `${currentTask.TaskName}`);
 
-                console.log('Редактирована задача =>', currentTask.TaskName);
-            });
-        };
+        //         console.log('Редактирована задача =>', currentTask.TaskName);
+        //     });
+        // };
     };
 
 

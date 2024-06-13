@@ -8,7 +8,7 @@
     </div>
     <div class="container-of-backlog" *ngIf="isLoaded; else loader">
         <div class="backlog-li" (click)="showDescription(task)" [ngClass]="{'selected': task.isShowDescription}"
-            *ngFor="let task of loadTasks()">
+            *ngFor="let task of loadTasks() | async">
             <div class="infoblock-of-backlog">
                 <p class="id-of-backlog li-style">{{task.Id}}</p>
                 <p class="li-style">{{task.TaskName}}</p>

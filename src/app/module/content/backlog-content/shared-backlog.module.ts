@@ -7,7 +7,8 @@ import { BacklogRoutingModule } from './backlog-routing.module';
 
 import {
     BacklogTaskListComponent,
-    BacklogTaskViewerComponent
+    BacklogTaskViewerComponent,
+    SharedBacklogTaskListModule
 } from '.';
 
 import { BacklogModalService } from 'src/app/services';
@@ -17,12 +18,12 @@ import { SharedDirectivesModule } from 'src/utils/directives';
 @NgModule({
     declarations: [
         BacklogContentComponent,
-        BacklogTaskListComponent,
         BacklogTaskViewerComponent
     ],
     imports: [
         CommonModule,
         SharedComponentsModule,
+        SharedBacklogTaskListModule,
         BacklogRoutingModule,
         SharedDirectivesModule
     ],

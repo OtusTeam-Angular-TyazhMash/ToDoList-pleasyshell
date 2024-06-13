@@ -48,5 +48,4 @@ export class BoardFilterService {
         return this.filter.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
     };
 
-
 };

@@ -52,7 +52,7 @@ export class BoardContentService {
 
     public openTaskDetail(task: TTask) {
 
-        this.backlogContentService.setDetailTask(task);
+        // this.backlogContentService.setDetailTask(task);
         this.router.navigate(['backlog', task.Id]);
     };
 
