@@ -1,4 +1,4 @@
-<!-- <div class="selected-task-body">
+<div class="selected-task-body">
     <ng-container *ngIf="getTask().Id > 0; else noIdText">
         <div class="selected-task-body-header">
             <p>Просмотр задачи</p>
@@ -24,11 +24,11 @@
             <div class="manage-task">
                 <delete-button-big (click)="deleteTaskById()"></delete-button-big>
                 <edit-button-big (click)="openEditModal(getTask())"></edit-button-big>
-                <back-button (click)="cancellTaskWatch()"></back-button>
+                <back-button (click)="cancellTaskWatch(getTask())"></back-button>
             </div>
         </div>
     </ng-container>
     <ng-template #noIdText>
         <p class="no-info">Кликните левой кнопкой мыши по задаче, чтобы посмотреть её детали</p>
     </ng-template>
-</div> -->
+</div>

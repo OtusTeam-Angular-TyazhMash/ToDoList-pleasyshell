@@ -6,7 +6,7 @@ import { BacklogContentService, BacklogModalService } from 'src/app/services';
     templateUrl: './backlog-content.component.html'
 })
 
-export class BacklogContentComponent implements OnDestroy {
+export class BacklogContentComponent {
 
 
     constructor(
@@ -14,13 +14,7 @@ export class BacklogContentComponent implements OnDestroy {
         private backlogContentService: BacklogContentService
     ) { }
 
-
-    ngOnDestroy() {
-
-        this.backlogContentService.removeSelectedTask();
-    };
-
-
+    
     protected addTask() {
 
         this.backlogModal.openTaskModal();

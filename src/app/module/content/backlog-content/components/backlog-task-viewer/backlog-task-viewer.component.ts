@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { TTask } from 'src/app/module/content-types';
 import { BacklogContentService } from 'src/app/services';
 import { BacklogModalService } from 'src/app/services/backlog-services/backlog-modal.service';
+import { TTaskListContentState, removeShowCurrentTask, reset } from '../../store';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'backlog-task-viewer',
@@ -12,20 +14,30 @@ export class BacklogTaskViewerComponent {
 
 
     constructor(
+        private store: Store<TTaskListContentState>,
         private backlogContentService: BacklogContentService,
         private backlogModal: BacklogModalService
     ) { }
 
 
-    protected getTask() {
+    private viewTask$: TTask = reset();
 
-        return this.backlogContentService.getSelectedTask();
+
+    protected getTask(): TTask {
+
+        const selectedTask = this.backlogContentService.getSelectedTask();
+
+        selectedTask.subscribe(x => {
+            this.viewTask$ = x;
+        });
+
+        return this.viewTask$;
     };
 
 
-    protected cancellTaskWatch() {
+    protected cancellTaskWatch(currentTask: TTask) {
 
-        this.backlogContentService.removeSelectedTask();
+        this.store.dispatch(removeShowCurrentTask({task: currentTask}))
     };
 
 

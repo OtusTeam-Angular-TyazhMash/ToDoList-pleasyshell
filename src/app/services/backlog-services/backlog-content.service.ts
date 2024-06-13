@@ -3,10 +3,9 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import {
-    TTaskListContentState, loadTasks,
-    selectTasks, TTask,
-    selectSelectedTask,
-    showCurrentTask
+    TTaskListContentState, loadTasks, selectTasks,
+    TTask, selectSelectedTask, showCurrentTask,
+    removeShowCurrentTask
 } from "src/app/module/content/backlog-content/store";
 import { NoticeService } from "../notice/notice.service";
 
@@ -82,48 +81,15 @@ export class BacklogContentService {
     };
 
 
-    public showDescriptionOfCurrentTask(task: TTask) {
+    public showDescriptionOfCurrentTask(currentTask: TTask) {
 
-        this.store.dispatch(showCurrentTask({ task: task }))
+        if (currentTask.isShowDescription) {
 
-        // const tasks = this.tasks$;
+            this.store.dispatch(removeShowCurrentTask({ task: currentTask }));
+            return;
+        };
 
-        // if (task.isShowDescription) {
-
-        //     this.removeSelectedTask();
-
-        // } else {
-
-        //     tasks.forEach(x => {
-
-        //         if (x !== task) {
-
-        //             x.isShowDescription = false;
-        //         };
-        //     })
-
-        //     task.isShowDescription = true;
-        //     this.selectedTask = task;
-        // };
-
-        // this.router.navigate(['backlog', task.Id]);
-
-        // console.log(task)
+        this.store.dispatch(showCurrentTask({ task: currentTask }));
     };
-
-    public removeSelectedTask() {
-
-        // const tasks = this.localAddedTasks;
-
-        // tasks.forEach(x => {
-
-        //     if (x === this.selectedTask) {
-
-        //         x.isShowDescription = false;
-        //     }
-        // })
-
-        // this.selectedTask = resetInitTask();
-    };
-
+    
 };
