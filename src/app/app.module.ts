@@ -11,6 +11,7 @@ import {
 } from './services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FakeApiService } from './services/api/fake-api.service';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FakeApiService } from './services/api/fake-api.service';
         HttpClientModule,
         AppRoutingModule,
         NavSharedModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        StoreModule.forRoot({}, {})
     ],
     bootstrap: [AppComponent],
     providers: [NoticeService, FakeApiService,
