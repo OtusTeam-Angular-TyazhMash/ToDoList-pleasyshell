@@ -7,7 +7,6 @@ import {
     TTask, selectSelectedTask, showCurrentTask,
     removeShowCurrentTask
 } from "src/app/module/content/backlog-content/store";
-import { NoticeService } from "../notice/notice.service";
 
 
 @Injectable()
@@ -17,8 +16,7 @@ export class BacklogContentService {
 
     constructor(
         private store: Store<TTaskListContentState>,
-        private router: Router,
-        private notice: NoticeService
+        private router: Router
     ) {
         this.store.dispatch(loadTasks());
 
@@ -41,46 +39,6 @@ export class BacklogContentService {
     };
 
 
-    public setDetailTask(task: TTask) {
-
-        // this.showDescriptionOfCurrentTask(task)
-        // this.selectedTask = task;
-    };
-
-
-    public deleteTask() {
-
-        // const notice = this.notice;
-        // const currentTask = this.selectedTask;
-
-        // if (currentTask.id) {
-
-        //     this.api.deleteTaskFromServerById(currentTask.id).subscribe(() => {
-
-        //         this.updateTaskList();
-        //         this.removeSelectedTask();
-        //         notice.delete('Удалена задача: ', `${currentTask.TaskName}`);
-
-        //         console.log('Удалить выбранную задачу по Id =>', currentTask.Id);
-        //     })
-        // };
-    };
-
-
-    public updateTaskList() {
-
-        // this.api.getTasksFromServer().subscribe((tasks: TTask[]) => {
-
-        //     this.localAddedTasks = tasks;
-        // });
-    };
-
-    public updateTaskViewer(editedTask: TTask) {
-
-        // this.selectedTask = editedTask;
-    };
-
-
     public showDescriptionOfCurrentTask(currentTask: TTask) {
 
         if (currentTask.isShowDescription) {
@@ -91,5 +49,5 @@ export class BacklogContentService {
 
         this.store.dispatch(showCurrentTask({ task: currentTask }));
     };
-    
+
 };

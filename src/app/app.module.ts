@@ -5,8 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavSharedModule } from './module/nav/nav-shared.module';
 import {
-    BacklogContentService,
-    BoardFilterService,
+    BacklogContentService, BoardFilterService,
     NoticeService
 } from './services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,8 +25,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         AppRoutingModule,
         NavSharedModule,
         BrowserAnimationsModule,
-        StoreModule.forRoot({}, {}),
-        EffectsModule.forRoot([]),
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot({}),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
     ],
     bootstrap: [AppComponent],

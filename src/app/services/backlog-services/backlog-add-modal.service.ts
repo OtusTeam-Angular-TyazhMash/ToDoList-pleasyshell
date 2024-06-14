@@ -6,7 +6,7 @@ import { TTask, resetInitTask } from 'src/app/module/content-types';
 
 @Injectable()
 
-export class BacklogModalService {
+export class BacklogAddModalService {
 
 
     constructor(

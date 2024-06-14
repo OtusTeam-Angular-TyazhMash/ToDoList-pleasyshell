@@ -17,5 +17,9 @@ export const reset = () => {
 
 export const initTaskListContentState: TTaskListContentState = {
     TasksList: [],
-    SelectedTask: reset()
+    SelectedTask: reset(),
+    DeleteTaskModal: {
+        isOpen: false,
+        Content: reset()
+    }
 };

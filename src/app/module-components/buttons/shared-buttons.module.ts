@@ -11,6 +11,7 @@ import {
 import { EditButtonBigComponent } from './edit-button-big/edit-button-big.component';
 import { DeleteButtonBigComponent } from './delete-button-big/delete-button-big.component';
 import { BackButtonComponent } from './back-button/back-button.component';
+import { OkButtonComponent } from './ok-button/ok-button.component';
 
 
 
@@ -24,6 +25,7 @@ import { BackButtonComponent } from './back-button/back-button.component';
     EditButtonBigComponent,
     DeleteButtonBigComponent,
     BackButtonComponent,
+    OkButtonComponent,
   ],
   imports: [
     CommonModule
@@ -36,7 +38,8 @@ import { BackButtonComponent } from './back-button/back-button.component';
     AlternativeAddButtonComponent,
     EditButtonBigComponent,
     DeleteButtonBigComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    OkButtonComponent
   ]
 })
 export class SharedButtonsModule { }

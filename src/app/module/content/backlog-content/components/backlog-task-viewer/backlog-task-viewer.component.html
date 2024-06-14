@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="manage-task">
-                <delete-button-big (click)="deleteTaskById()"></delete-button-big>
+                <delete-button-big (click)="openDeleteModal(getTask())"></delete-button-big>
                 <edit-button-big (click)="openEditModal(getTask())"></edit-button-big>
                 <back-button (click)="cancellTaskWatch(getTask())"></back-button>
             </div>

@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
 import { TStatus, TTask } from 'src/app/module/content-types';
 import {
+    BacklogAddModalService,
     NoticeService
 } from 'src/app/services';
-import { BacklogModalService } from 'src/app/services/backlog-services/backlog-modal.service';
+
 import { openList, openWindow } from 'src/utils/animations';
 
 @Component({
     selector: 'modal-task',
     templateUrl: './modal-task.component.html',
-    styleUrls: ['./modal-task.component.scss',
+    styleUrls: ['../modal-styles.component.scss',
         '../../styles/button-styles.scss'],
     animations: [openWindow, openList]
 })
 
 export class ModalTaskComponent {
-    
+
 
     constructor(
         private notice: NoticeService,
-        private backlogModalService: BacklogModalService
+        private backlogAddModalService: BacklogAddModalService
     ) { }
 
 
@@ -38,7 +39,7 @@ export class ModalTaskComponent {
 
     protected getData(): TTask {
 
-        return this.backlogModalService.getDataForModalTask();
+        return this.backlogAddModalService.getDataForModalTask();
     };
 
     protected getStatuses(): TStatus[] {
@@ -54,7 +55,7 @@ export class ModalTaskComponent {
 
     protected modalState(): boolean {
 
-        return this.backlogModalService.getTaskModalState();
+        return this.backlogAddModalService.getTaskModalState();
     };
 
 
@@ -76,7 +77,7 @@ export class ModalTaskComponent {
     protected checkTaskValid(task: TTask) {
 
         const notice = this.notice;
-        const service = this.backlogModalService;
+        const service = this.backlogAddModalService;
 
         this.getData().TaskName !== '' ? service.checkMode(task) : notice.warning('Введите название задачи!');
     };
@@ -102,7 +103,7 @@ export class ModalTaskComponent {
     protected Close() {
 
         this.isStatusListOpen = false;
-        this.backlogModalService.closeTaskModal();
+        this.backlogAddModalService.closeTaskModal();
     };
 
 };

@@ -12,6 +12,45 @@
     gap: 15px;
 }
 
+.modal-footer-delete {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 0 15px 15px;
+}
+
+.delete-background {
+    z-index: 99999999999;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.modal-submit {
+    width: 580px;
+}
+
+.submit-body {
+    padding: 15px;
+    display: flex;
+    gap: 5px;
+
+    &-text {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.modal-submit-text {
+    color: #212529;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
 .modal-window {
     position: fixed;
     z-index: 999;
@@ -52,15 +91,6 @@
     &.access {
         z-index: 9999;
     }
-}
-
-.delete-background {
-    z-index: 99999999999;
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
 }
 
 .modal-add-task {

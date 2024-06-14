@@ -4,7 +4,7 @@ import { BacklogTaskListComponent } from './backlog-task-list.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import {
-    BacklogTaskListEffects, TASKS_STATE_NAME,
+    BacklogContentEffects, TASKS_STATE_NAME,
     tasksReducer
 } from '../../store';
 
@@ -16,7 +16,7 @@ import {
     imports: [
         CommonModule,
         StoreModule.forFeature(TASKS_STATE_NAME, tasksReducer),
-        EffectsModule.forFeature([BacklogTaskListEffects]),
+        EffectsModule.forFeature([BacklogContentEffects]),
     ],
     exports: [
         BacklogTaskListComponent

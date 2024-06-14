@@ -4,11 +4,13 @@ import { ModalTaskComponent } from '.';
 import { SharedButtonsModule } from '../buttons';
 import { FormsModule } from '@angular/forms';
 import { SharedDirectivesModule } from 'src/utils/directives';
+import { ModalDeleteTaskComponent } from './modal-delete-task/modal-delete-task.component';
 
 
 @NgModule({
   declarations: [
     ModalTaskComponent,
+    ModalDeleteTaskComponent,
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { SharedDirectivesModule } from 'src/utils/directives';
     SharedDirectivesModule
   ],
   exports: [
-    ModalTaskComponent
+    ModalTaskComponent,
+    ModalDeleteTaskComponent,
   ]
 })
 export class SharedModalsModule { }
