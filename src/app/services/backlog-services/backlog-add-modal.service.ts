@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
+import { TStatus, TTask } from 'src/app/module/content-types';
+import {
+    TAddTaskModal, TDeleteTaskModal, TTaskListContentState, closeAddTaskModal,
+    confirmSaveTask, openAddTaskModal, selectListOfTaskDescription, selectListOfTaskStatus,
+    selectModalAddTaskState, selectTasks, selectTitleOfTask, updateTasks,
+} from 'src/app/module/content/backlog-content/store';
+import { Observable, map, take } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { NoticeService } from '../notice/notice.service';
-import { BacklogContentService } from './backlog-content.service';
-import { FakeApiService } from '../api/fake-api.service';
-import { TTask, resetInitTask } from 'src/app/module/content-types';
 
 @Injectable()
 
@@ -10,98 +15,72 @@ export class BacklogAddModalService {
 
 
     constructor(
-        private notice: NoticeService,
-        private backlogContentService: BacklogContentService,
-        private api: FakeApiService
-    ) { }
+        private store: Store<TTaskListContentState>,
+        private notice: NoticeService
 
+    ) {
+        this.modalAddTask$ = this.store.select(selectModalAddTaskState);
 
-    private dataTask: TTask = resetInitTask();
-    private isOpen: boolean = false;
-
-
-    private saveTask(currentTask: TTask) {
-
-        // const tasks = this.backlogContentService.getTasks();
-        // const notice = this.notice;
-        // const findMaxTaskId = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.Id));
-
-        // this.api.saveTaskOnServer({
-
-        //     Id: findMaxTaskId + 1,
-        //     TaskName: currentTask.TaskName,
-        //     TaskStatus: currentTask.TaskStatus,
-        //     Description: currentTask.Description
-
-        // }).subscribe(() => {
-
-        //     this.isOpen = false;
-
-        //     this.backlogContentService.updateTaskList();
-        //     this.dataTask = resetInitTask();
-
-        //     notice.success('Успешно добавлена задача: ', `${currentTask.TaskName}`);
-
-        //     console.log('Добавлена новая задача =>', findMaxTaskId + 1, currentTask.TaskName);
-        // })
-    };
-
-    private editTask(currentTask: TTask) {
-
-        // const editedTask = this.backlogContentService.getTasks().find(task => task.Id === currentTask.Id);
-        // const notice = this.notice;
-
-        // if (editedTask) {
-
-        //     this.api.updateTaskFromServer(currentTask).subscribe(() => {
-
-        //         this.isOpen = false;
-
-        //         this.backlogContentService.updateTaskList();
-        //         this.backlogContentService.updateTaskViewer(currentTask);
-
-        //         this.dataTask = resetInitTask();
-
-        //         notice.edit('Редактирована задача: ', `${currentTask.TaskName}`);
-
-        //         console.log('Редактирована задача =>', currentTask.TaskName);
-        //     });
-        // };
+        this.titleOfTaskInit$ = this.store.select(selectTitleOfTask);
+        this.listOfTaskStatusInit$ = this.store.select(selectListOfTaskStatus);
+        this.textAreaOfTaskDescriptionInit$ = this.store.select(selectListOfTaskDescription);
     };
 
 
-    public getTaskModalState(): boolean {
-
-        return this.isOpen;
-    };
-
-    public getDataForModalTask(): TTask {
-
-        return this.dataTask;
-    };
+    private modalAddTask$: Observable<TAddTaskModal>;
 
 
-    public checkMode(currentTask: TTask) {
+    public titleOfTaskInit$: Observable<string>;
+    public listOfTaskStatusInit$: Observable<TStatus>;
+    public textAreaOfTaskDescriptionInit$: Observable<string>;
 
-        currentTask.Id !== 0 ? this.editTask(currentTask) : this.saveTask(currentTask);
+
+    public getAddedTask(): Observable<TDeleteTaskModal> {
+
+        return this.modalAddTask$;
     };
 
 
-    public openTaskModal(task?: TTask) {
+    public openAddTaskModal() {
 
-        if (!task) {
-
-            task = resetInitTask();
-        };
-
-        this.dataTask = { ...task };
-        this.isOpen = true;
+        this.store.dispatch(openAddTaskModal({ task: undefined }));
     };
 
-    public closeTaskModal() {
+    public closeAddTaskModal() {
 
-        this.isOpen = false;
-        this.dataTask = resetInitTask();
+        this.store.dispatch(closeAddTaskModal());
+    };
+
+
+    public saveTask() {
+
+        const notice = this.notice;
+
+        this.store.select(selectTasks).pipe(
+            take(1),
+            map(tasks => {
+                const maxId = tasks.reduce((max, task) => task.Id > max ? task.Id : max, 0);
+                return maxId;
+            })
+        ).subscribe(maxId => {
+            this.modalAddTask$.pipe(take(1)).subscribe((modalState: TAddTaskModal) => {
+
+                const modalTask = modalState.ModalContent;
+
+                if (modalTask) {
+
+                    const newTask: TTask = {
+                        ...modalTask,
+                        Id: maxId + 1
+                    };
+
+                    this.store.dispatch(confirmSaveTask({ task: newTask }));
+                    this.store.dispatch(updateTasks());
+
+                    notice.success('Добавлена задача: ', `${newTask.TaskName}`);
+                };
+            });
+        });
     };
 
 };

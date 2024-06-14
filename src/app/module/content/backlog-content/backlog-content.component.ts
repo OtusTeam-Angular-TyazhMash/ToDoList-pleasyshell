@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { BacklogAddModalService } from 'src/app/services';
 
 @Component({
     selector: 'backlog-content',
@@ -9,7 +10,7 @@ export class BacklogContentComponent implements OnDestroy {
 
 
     constructor(
-
+        private backlogAddModalService: BacklogAddModalService
     ) { }
 
 
@@ -20,7 +21,7 @@ export class BacklogContentComponent implements OnDestroy {
 
     protected addTask() {
 
-        
+        this.backlogAddModalService.openAddTaskModal();
     };
 
 };

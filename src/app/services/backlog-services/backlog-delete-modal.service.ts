@@ -48,13 +48,13 @@ export class BacklogDeleteModalService {
         let deleteTask: TTask;
 
         this.modalDeleteTask$.pipe(take(1)).subscribe((modalState: TDeleteTaskModal) => {
-            deleteTask = modalState.Content;
+            deleteTask = modalState.ModalContent;
 
             if (deleteTask.id) {
 
-                this.store.dispatch(confirmDeleteTaskModal({ taskId: deleteTask.id }));
-                this.store.dispatch(updateTasks());
+                this.store.dispatch(confirmDeleteTaskModal({ task: deleteTask}));
                 this.store.dispatch(removeShowCurrentTask({ task: deleteTask }));
+                this.store.dispatch(updateTasks());
 
                 notice.delete('Удалена задача: ', `${deleteTask.TaskName}`);
             };

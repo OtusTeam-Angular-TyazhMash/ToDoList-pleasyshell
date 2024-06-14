@@ -6,25 +6,31 @@ import { SharedComponentsModule } from 'src/app/module-components/shared-compone
 import { BacklogRoutingModule } from './backlog-routing.module';
 
 import {
-    BacklogTaskViewerComponent,
-    SharedBacklogTaskListModule
+    BacklogTaskListComponent,
+    BacklogTaskViewerComponent
 } from '.';
 
 import { SharedDirectivesModule } from 'src/utils/directives';
 import { BacklogAddModalService, BacklogDeleteModalService } from 'src/app/services';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { TASKS_STATE_NAME, tasksReducer } from './store';
+import { BacklogContentEffects } from './store/effects/backlog-content.effects';
 
 
 @NgModule({
     declarations: [
         BacklogContentComponent,
-        BacklogTaskViewerComponent
+        BacklogTaskViewerComponent,
+        BacklogTaskListComponent
     ],
     imports: [
         CommonModule,
         SharedComponentsModule,
-        SharedBacklogTaskListModule,
         BacklogRoutingModule,
-        SharedDirectivesModule
+        SharedDirectivesModule,
+        StoreModule.forFeature(TASKS_STATE_NAME, tasksReducer),
+        EffectsModule.forFeature([BacklogContentEffects]),
     ],
     providers: [BacklogAddModalService, BacklogDeleteModalService]
 })

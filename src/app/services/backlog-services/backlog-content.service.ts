@@ -39,15 +39,23 @@ export class BacklogContentService {
     };
 
 
+    public updateTasksList() {
+
+       
+    };
+
+
     public showDescriptionOfCurrentTask(currentTask: TTask) {
 
         if (currentTask.isShowDescription) {
 
             this.store.dispatch(removeShowCurrentTask({ task: currentTask }));
+            this.router.navigate(['backlog', '']);
             return;
         };
 
         this.store.dispatch(showCurrentTask({ task: currentTask }));
+        this.router.navigate(['backlog', `${currentTask.Id}`]);
     };
 
 };

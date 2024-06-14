@@ -20,6 +20,11 @@ export const initTaskListContentState: TTaskListContentState = {
     SelectedTask: reset(),
     DeleteTaskModal: {
         isOpen: false,
-        Content: reset()
+        ModalContent: reset()
+    },
+    AddTaskModal: {
+        isOpen: false,
+        isEdit: false,
+        ModalContent: reset()
     }
 };

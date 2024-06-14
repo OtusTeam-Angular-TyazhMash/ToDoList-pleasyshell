@@ -42,7 +42,7 @@ export class FakeApiService {
         return this.http.post(this.url, task);
     };
 
-    public deleteTaskFromServerById(id: string) {
+    public deleteTaskFromServerById(id?: string) {
 
         const deleteUrl = `${this.url}/${id}`;
 

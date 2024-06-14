@@ -1,0 +1,13 @@
+<div class="input-container">
+    <input title="" type="text" value="{{value.Name || value.Status}}" class="input-style list-input"
+        (click)="openList()" required disableTyping>
+    <label class="placeholder-prompt">{{placeholder}}</label>
+    <img class="icon-abs-style list-style" src="assets/images/list.svg" [ngStyle]="{'transform': listSelected()}">
+    <div class="modal-list" *ngIf="isOpen" @showList>
+        <div class="list">
+            <div class="list-container" *ngFor="let row of tableRow" (click)="onClickRow(row)">
+                <p class="item-main">{{row.Name || row.Status}}</p>
+            </div>
+        </div>
+    </div>
+</div>

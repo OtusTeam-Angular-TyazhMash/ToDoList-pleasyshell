@@ -6,11 +6,18 @@ export type TTaskListContentState = {
     TasksList: TTask[]
     SelectedTask: TTask
     DeleteTaskModal: TDeleteTaskModal
+    AddTaskModal: TAddTaskModal
 }
 
 export type TDeleteTaskModal = {
     isOpen: boolean,
-    Content: TTask
+    ModalContent: TTask
+}
+
+export type TAddTaskModal = {
+    isOpen: boolean,
+    isEdit: boolean,
+    ModalContent: TTask
 }
 
 export type TStatus = {

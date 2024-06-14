@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
-import { TStatus, TTask } from 'src/app/module/content-types';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { TStatus } from 'src/app/module/content-types';
 import {
-    BacklogAddModalService,
-    NoticeService
+    TAddTaskModal, TTaskListContentState, selectModalAddTaskState,
+    setFieldTaskDescription,
+    setFieldTaskName, setFieldTaskStatus
+} from 'src/app/module/content/backlog-content/store';
+import {
+    BacklogAddModalService
 } from 'src/app/services';
-
 import { openList, openWindow } from 'src/utils/animations';
 
 @Component({
-    selector: 'modal-task',
+    selector: 'modal-add-task',
     templateUrl: './modal-task.component.html',
     styleUrls: ['../modal-styles.component.scss',
         '../../styles/button-styles.scss'],
@@ -19,12 +24,18 @@ export class ModalTaskComponent {
 
 
     constructor(
-        private notice: NoticeService,
+        private store: Store<TTaskListContentState>,
         private backlogAddModalService: BacklogAddModalService
-    ) { }
+    ) {
+        this.addTaskModalExist();
+
+        this.titleOfTask = backlogAddModalService.titleOfTaskInit$;
+        this.listOfTaskStatus = backlogAddModalService.listOfTaskStatusInit$;
+        this.textAreaOfTaskDescription = backlogAddModalService.textAreaOfTaskDescriptionInit$;
+    };
 
 
-    private isStatusListOpen: boolean = false;
+    private viewContent!: TAddTaskModal;
     private allStatuses: TStatus[] = [
         {
             Id: 1,
@@ -37,9 +48,23 @@ export class ModalTaskComponent {
     ];
 
 
-    protected getData(): TTask {
+    protected titleOfTask: Observable<string>;
+    protected listOfTaskStatus: Observable<TStatus>;
+    protected textAreaOfTaskDescription: Observable<string>;
 
-        return this.backlogAddModalService.getDataForModalTask();
+
+    private addTaskModalExist() {
+
+        this.store.select(selectModalAddTaskState).subscribe(result => {
+
+            this.viewContent = result;
+        });
+    };
+
+
+    protected getModalViewContent(): TAddTaskModal {
+
+        return this.viewContent;
     };
 
     protected getStatuses(): TStatus[] {
@@ -47,63 +72,32 @@ export class ModalTaskComponent {
         return this.allStatuses;
     };
 
-    protected getStatusListState(): boolean {
 
-        return this.isStatusListOpen;
+    protected onTitleOfTaskChange(_taskname: string) {
+
+        this.store.dispatch(setFieldTaskName({ taskname: _taskname }))
+    };
+
+    protected onListOfTaskStatusChange(_status: TStatus) {
+
+        this.store.dispatch(setFieldTaskStatus({ status: _status }));
+    };
+
+    protected onTextAreaTaskDescriptionChange(_description: string) {
+
+        this.store.dispatch(setFieldTaskDescription({ description: _description }));
     };
 
 
-    protected modalState(): boolean {
+    protected confirmSaveTask() {
 
-        return this.backlogAddModalService.getTaskModalState();
+        this.backlogAddModalService.saveTask();
     };
 
 
-    protected sendTaskName(event: KeyboardEvent) {
+    protected closeModal() {
 
-        const { value } = event.target as HTMLInputElement;
-
-        this.getData().TaskName = value;
-    };
-
-    protected sendDescription(event: KeyboardEvent) {
-
-        const { value } = event.target as HTMLInputElement;
-
-        this.getData().Description = value;
-    };
-
-
-    protected checkTaskValid(task: TTask) {
-
-        const notice = this.notice;
-        const service = this.backlogAddModalService;
-
-        this.getData().TaskName !== '' ? service.checkMode(task) : notice.warning('Введите название задачи!');
-    };
-
-
-    protected openList() {
-
-        this.isStatusListOpen = true;
-    };
-
-    protected onClickStatus(status: TStatus) {
-
-        this.getData().TaskStatus = status;
-        this.isStatusListOpen = false;
-    };
-
-    protected listSelected() {
-
-        return this.isStatusListOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    };
-
-
-    protected Close() {
-
-        this.isStatusListOpen = false;
-        this.backlogAddModalService.closeTaskModal();
+        this.backlogAddModalService.closeAddTaskModal();
     };
 
 };

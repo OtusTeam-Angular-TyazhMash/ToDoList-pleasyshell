@@ -1,13 +1,11 @@
-import {
-    Component, EventEmitter,
-    Input, Output
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-    selector: 'title-input',
-    templateUrl: './title-input.component.html'
+    selector: 'text-area',
+    templateUrl: './text-area.component.html'
 })
-export class TitleInputComponent {
+
+export class TextAreaComponent {
 
 
     @Input() placeholder: string = '';
@@ -23,5 +21,5 @@ export class TitleInputComponent {
         this.valueChange.emit(input.value);
         this.value = input.value;
     };
-
+    
 }

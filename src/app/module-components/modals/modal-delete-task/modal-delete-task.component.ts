@@ -23,21 +23,21 @@ export class ModalDeleteTaskComponent {
     };
 
 
-    private viewContent!: TDeleteTaskModal
+    private viewContent!: TDeleteTaskModal;
 
 
     private deleteTaskModalExist() {
 
         this.store.select(selectModalDeleteTaskState).subscribe(result => {
 
-            this.viewContent = result
+            this.viewContent = result;
         });
     };
 
 
     protected getModalViewContent(): TDeleteTaskModal {
 
-        return this.viewContent
+        return this.viewContent;
     };
 
 
