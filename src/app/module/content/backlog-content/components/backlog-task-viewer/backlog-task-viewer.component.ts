@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TTask } from 'src/app/module/content-types';
-import { BacklogAddModalService, BacklogContentService, BacklogDeleteModalService } from 'src/app/services';
+import { BacklogContentService, BacklogDeleteModalService } from 'src/app/services';
 import {
+    TTask,
     TTaskListContentState, removeShowCurrentTask, reset
 } from '../../store';
 import { Store } from '@ngrx/store';
@@ -18,7 +18,6 @@ export class BacklogTaskViewerComponent {
         private store: Store<TTaskListContentState>,
 
         private backlogContentService: BacklogContentService,
-        private backlogAddModalService: BacklogAddModalService,
         private backlogDeleteModalService: BacklogDeleteModalService
     ) { }
 

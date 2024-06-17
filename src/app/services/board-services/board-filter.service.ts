@@ -1,51 +1,49 @@
 import { Injectable } from '@angular/core';
-import { resetInitFilter } from 'src/app/module/content-types';
-import { TFilter, TFilterTask } from 'src/app/module/content-types/task-types/filter.type';
 
 @Injectable()
 
 export class BoardFilterService {
 
 
-    constructor(
+    // constructor(
 
-    ) { }
-
-
-    private filter: TFilter = resetInitFilter();
-    private filterByStatus: string = 'Все';
+    // ) { }
 
 
-    public getFilterStatus(): boolean {
-
-        return this.filter.isOpen;
-    };
-
-    public getFilterContent(): TFilterTask[] {
-
-        return this.filter.FilterContent;
-    };
-
-    public getFilterValue(): string {
-
-        return this.filterByStatus;
-    };
+    // private filter: TFilter = resetInitFilter();
+    // private filterByStatus: string = 'Все';
 
 
-    public openFilter(): boolean {
+    // public getFilterStatus(): boolean {
 
-        return this.filter.isOpen = true;
-    };
+    //     return this.filter.isOpen;
+    // };
 
-    public setTaskFilter(status: string) {
+    // public getFilterContent(): TFilterTask[] {
 
-        this.filterByStatus = status;
-        return this.filter.isOpen = false;
-    };
+    //     return this.filter.FilterContent;
+    // };
 
-    public listStyle(): string {
+    // public getFilterValue(): string {
 
-        return this.filter.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-    };
+    //     return this.filterByStatus;
+    // };
+
+
+    // public openFilter(): boolean {
+
+    //     return this.filter.isOpen = true;
+    // };
+
+    // public setTaskFilter(status: string) {
+
+    //     this.filterByStatus = status;
+    //     return this.filter.isOpen = false;
+    // };
+
+    // public listStyle(): string {
+
+    //     return this.filter.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+    // };
 
 };

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { TStatus, TTask } from 'src/app/module/content-types';
 import {
-    TAddTaskModal, TDeleteTaskModal, TTaskListContentState, closeAddTaskModal,
-    confirmSaveTask, openAddTaskModal, selectListOfTaskDescription, selectListOfTaskStatus,
-    selectModalAddTaskState, selectTasks, selectTitleOfTask, updateTasks,
+    TAddTaskModal, TDeleteTaskModal, TStatus,
+    TTask, TTaskListContentState, closeAddTaskModal,
+    confirmSaveTask, openAddTaskModal, selectListOfTaskDescription,
+    selectListOfTaskStatus, selectModalAddTaskState, selectTasks,
+    selectTitleOfTask,
 } from 'src/app/module/content/backlog-content/store';
 import { Observable, map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { NoticeService } from '../notice/notice.service';
+import * as uuid from "uuid";
 
 @Injectable()
 
@@ -69,14 +71,15 @@ export class BacklogAddModalService {
 
                 if (modalTask) {
 
+                    const generateJSONId = uuid.v4()
+
                     const newTask: TTask = {
                         ...modalTask,
-                        Id: maxId + 1
+                        Id: maxId + 1,
+                        id: generateJSONId
                     };
 
                     this.store.dispatch(confirmSaveTask({ task: newTask }));
-                    this.store.dispatch(updateTasks());
-
                     notice.success('Добавлена задача: ', `${newTask.TaskName}`);
                 };
             });

@@ -21,16 +21,6 @@
       "id": "db26"
     },
     {
-      "id": "1cf2",
-      "Id": 12,
-      "TaskName": "Пройти курсы OTUS",
-      "Description": "Хочу стать топовым веб-разработчиком в свои 19 лет. Реально ли?",
-      "TaskStatus": {
-        "Id": 1,
-        "Status": "Не выполнена"
-      }
-    },
-    {
       "Id": 15,
       "TaskName": "Пойти в лес",
       "Description": "Ментальное здоровье важнее",
@@ -45,28 +35,6 @@
       "Id": 16,
       "TaskName": "Мечта",
       "Description": "Какая-то великая мечта, которая должна быть исполнена.",
-      "TaskStatus": {
-        "Id": 1,
-        "Status": "Не выполнена"
-      }
-    },
-    {
-      "id": "",
-      "Id": 17,
-      "TaskName": "3123",
-      "Description": "1231",
-      "isShowDescription": false,
-      "TaskStatus": {
-        "Id": 2,
-        "Status": "Выполнена"
-      }
-    },
-    {
-      "id": "",
-      "Id": 18,
-      "TaskName": "31312",
-      "Description": "313121",
-      "isShowDescription": false,
       "TaskStatus": {
         "Id": 1,
         "Status": "Не выполнена"

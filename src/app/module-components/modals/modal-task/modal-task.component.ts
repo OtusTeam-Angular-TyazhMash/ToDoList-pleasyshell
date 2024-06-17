@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { TStatus } from 'src/app/module/content-types';
 import {
-    TAddTaskModal, TTaskListContentState, selectModalAddTaskState,
-    setFieldTaskDescription,
-    setFieldTaskName, setFieldTaskStatus
+    TAddTaskModal, TStatus, TTaskListContentState, selectModalAddTaskState,
+    setFieldTaskDescription, setFieldTaskName, setFieldTaskStatus
 } from 'src/app/module/content/backlog-content/store';
 import {
     BacklogAddModalService

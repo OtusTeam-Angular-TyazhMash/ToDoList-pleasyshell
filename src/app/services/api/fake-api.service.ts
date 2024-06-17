@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TTask } from 'src/app/module/content-types';
+import { TTask } from 'src/app/module/content/backlog-content/store';
 
 @Injectable()
 
@@ -45,7 +45,7 @@ export class FakeApiService {
     public deleteTaskFromServerById(id?: string) {
 
         const deleteUrl = `${this.url}/${id}`;
-
+        
         return this.http.delete(deleteUrl);
     };
 

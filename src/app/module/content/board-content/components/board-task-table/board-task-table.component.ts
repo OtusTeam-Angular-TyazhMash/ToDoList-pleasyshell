@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { TTask } from 'src/app/module/content-types';
-import { TFilterTask } from 'src/app/module/content-types/task-types/filter.type';
 import { BoardFilterService } from 'src/app/services';
 import { BoardContentService } from 'src/app/services/board-services/board-content.service';
 import { openList } from 'src/utils/animations';
@@ -21,47 +19,47 @@ export class BoardTaskTableComponent {
     ) { }
 
 
-    protected getTasks(): TTask[] {
+    // protected getTasks(): TTask[] {
 
-        return this.boardContentService.filterData();
-    };
-
-
-    protected openDetail(task: TTask) {
-
-        this.boardContentService.openTaskDetail(task);
-    };
+    //     return this.boardContentService.filterData();
+    // };
 
 
-    protected openFilterList(): boolean {
+    // protected openDetail(task: TTask) {
 
-        return this.boardFilterService.openFilter();
-    };
-
-    protected openList(): string {
-
-        return this.boardFilterService.listStyle();
-    };
+    //     this.boardContentService.openTaskDetail(task);
+    // };
 
 
-    protected filterStatus(): boolean {
+    // protected openFilterList(): boolean {
 
-        return this.boardFilterService.getFilterStatus();
-    };
+    //     return this.boardFilterService.openFilter();
+    // };
 
-    protected filterValue(): string {
+    // protected openList(): string {
 
-        return this.boardFilterService.getFilterValue();
-    };
+    //     return this.boardFilterService.listStyle();
+    // };
 
-    protected filterList(): TFilterTask[] {
 
-        return this.boardFilterService.getFilterContent();
-    };
+    // protected filterStatus(): boolean {
 
-    protected activateCurrentFilter(status: string) {
+    //     return this.boardFilterService.getFilterStatus();
+    // };
 
-        this.boardFilterService.setTaskFilter(status);
-    };
+    // protected filterValue(): string {
+
+    //     return this.boardFilterService.getFilterValue();
+    // };
+
+    // protected filterList(): TFilterTask[] {
+
+    //     return this.boardFilterService.getFilterContent();
+    // };
+
+    // protected activateCurrentFilter(status: string) {
+
+    //     this.boardFilterService.setTaskFilter(status);
+    // };
 
 };

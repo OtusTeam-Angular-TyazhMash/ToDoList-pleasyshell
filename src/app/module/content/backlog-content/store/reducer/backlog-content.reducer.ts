@@ -1,10 +1,10 @@
 import { createReducer, on, Action } from "@ngrx/store";
 import {
-    loadTasks, loadTasksSuccess, showCurrentTask, removeShowCurrentTask,
-    openAddTaskModal, closeAddTaskModal, setFieldTaskName,
-    setFieldTaskStatus, setFieldTaskDescription, openDeleteTaskModal,
-    closeDeleteTaskModal, confirmDeleteTaskModal,
-    confirmSaveTask
+    loadTasks, loadTasksSuccess, showCurrentTask,
+    removeShowCurrentTask, openAddTaskModal, closeAddTaskModal,
+    setFieldTaskName, setFieldTaskStatus, setFieldTaskDescription,
+    openDeleteTaskModal, closeDeleteTaskModal, confirmDeleteTaskModal,
+    confirmSaveTask, deleteTaskSuccess, saveTaskSuccess
 } from "../actions/backlog-content.actions";
 import { initTaskListContentState, reset } from "../state/backlog-task-content.init";
 import { TTaskListContentState } from "../state/backlog-task-content.state";
@@ -88,7 +88,8 @@ const _tasksReducer = createReducer(
             }
         }
     })),
-    on(confirmSaveTask, (state, { task }) => ({
+    on(confirmSaveTask, (state) => state),
+    on(saveTaskSuccess, (state, { task }) => ({
         ...state,
         TasksList: [
             ...state.TasksList,
@@ -110,7 +111,13 @@ const _tasksReducer = createReducer(
             ModalContent: reset()
         }
     })),
-    on(confirmDeleteTaskModal, (state) => state)
+    on(confirmDeleteTaskModal, (state) => state),
+    on(deleteTaskSuccess, (state, action) => {
+        return {
+            ...state,
+            TasksList: state.TasksList.filter(task => task.id !== action.taskId)
+        };
+    })
 
 );
 

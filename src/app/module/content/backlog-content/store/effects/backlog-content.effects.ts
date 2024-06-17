@@ -4,8 +4,8 @@ import { mergeMap, map } from "rxjs";
 import { FakeApiService } from "src/app/services/api/fake-api.service";
 import {
     loadTasks, loadTasksSuccess, confirmDeleteTaskModal,
-    closeDeleteTaskModal, updateTasks, updateTasksSuccess,
-    confirmSaveTask, closeAddTaskModal
+    closeDeleteTaskModal, confirmSaveTask, closeAddTaskModal,
+    deleteTaskSuccess, saveTaskSuccess, removeShowCurrentTask
 } from "../actions/backlog-content.actions";
 
 
@@ -27,42 +27,40 @@ export class BacklogContentEffects {
             mergeMap(() =>
                 this.api.getTasksFromServer().pipe(
                     map(tasks => loadTasksSuccess({ loadedTasks: tasks }))
-
                 )
             )
         )
     );
 
     protected confirmDeleteTask$ = createEffect(() =>
+
         this.actions$.pipe(
             ofType(confirmDeleteTaskModal),
             mergeMap((action) =>
                 this.api.deleteTaskFromServerById(action.task.id).pipe(
-                    mergeMap(() =>
-                        this.api.getTasksFromServer().pipe(
-                            map(tasks => loadTasksSuccess({ loadedTasks: tasks }))
-                        )
-                    ),
-                    map(() => closeDeleteTaskModal())
+                    mergeMap(() => [
+                        closeDeleteTaskModal(),
+                        removeShowCurrentTask({ task: action.task }),
+                        deleteTaskSuccess({ taskId: action.task.id })
+                    ])
                 )
             )
         )
     );
 
     protected confirmSaveTask$ = createEffect(() =>
+
         this.actions$.pipe(
             ofType(confirmSaveTask),
             mergeMap((action) =>
                 this.api.saveTaskOnServer(action.task).pipe(
-                    mergeMap(() =>
-                        this.api.getTasksFromServer().pipe(
-                            map(tasks => loadTasksSuccess({ loadedTasks: tasks }))
-                        )
-                    ),
-                    map(() => closeAddTaskModal())
+                    mergeMap(() => [
+                        closeAddTaskModal(),
+                        saveTaskSuccess({ task: action.task })
+                    ])
                 )
             )
         )
     );
-    
+
 };

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, take } from 'rxjs';
-import { TTask } from 'src/app/module/content-types';
 import {
-    TDeleteTaskModal, TTaskListContentState, closeDeleteTaskModal,
-    confirmDeleteTaskModal, openDeleteTaskModal, removeShowCurrentTask,
-    selectModalDeleteTaskState, updateTasks
+    TDeleteTaskModal, TTask, TTaskListContentState,
+    closeDeleteTaskModal, confirmDeleteTaskModal, openDeleteTaskModal,
+    selectModalDeleteTaskState
 } from 'src/app/module/content/backlog-content/store';
 import { NoticeService } from '..';
 
@@ -52,10 +51,7 @@ export class BacklogDeleteModalService {
 
             if (deleteTask.id) {
 
-                this.store.dispatch(confirmDeleteTaskModal({ task: deleteTask}));
-                this.store.dispatch(removeShowCurrentTask({ task: deleteTask }));
-                this.store.dispatch(updateTasks());
-
+                this.store.dispatch(confirmDeleteTaskModal({ task: deleteTask }));
                 notice.delete('Удалена задача: ', `${deleteTask.TaskName}`);
             };
         });

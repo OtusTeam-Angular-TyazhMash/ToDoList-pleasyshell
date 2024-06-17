@@ -8,8 +8,6 @@ import {
 
 export const loadTasks = createAction(TasksListActions.LOAD_TASKS);
 export const loadTasksSuccess = createAction(TasksListActions.LOAD_TASKS_SUCCESS, props<{ loadedTasks: TTask[] }>());
-export const updateTasks = createAction(TasksListActions.UPDATE_TASKS);
-export const updateTasksSuccess = createAction(TasksListActions.UPDATE_TASKS_SUCCESS, props<{ updatedTasks: TTask[] }>());
 
 
 export const showCurrentTask = createAction(SelectedTaskActions.SHOW_CURRENT_TASK, props<{ task: TTask }>());
@@ -22,8 +20,10 @@ export const setFieldTaskName = createAction(AddTaskModalActions.SET_FIELD_TASKN
 export const setFieldTaskStatus = createAction(AddTaskModalActions.SET_FIELD_TASK_STATUS, props<{ status: TStatus }>());
 export const setFieldTaskDescription = createAction(AddTaskModalActions.SET_FIELD_TASK_DESCRIPTION, props<{ description: string }>());
 export const confirmSaveTask = createAction(AddTaskModalActions.CONFIRM_ADD_TASK, props<{ task: TTask }>());
+export const saveTaskSuccess = createAction(AddTaskModalActions.ADD_TASK_SUCCESS, props<{ task: TTask }>());
 
 
 export const openDeleteTaskModal = createAction(DeleteTaskModalActions.OPEN_DELETE_TASK_MODAL, props<{ task: TTask }>());
 export const closeDeleteTaskModal = createAction(DeleteTaskModalActions.CLOSE_DELETE_TASK_MODAL);
 export const confirmDeleteTaskModal = createAction(DeleteTaskModalActions.CONFIRM_DELETE_TASK, props<{ task: TTask }>());
+export const deleteTaskSuccess = createAction(DeleteTaskModalActions.DELETE_TASK_SUCCESS, props<{ taskId?: string }>());

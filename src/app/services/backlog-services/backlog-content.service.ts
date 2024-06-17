@@ -39,12 +39,6 @@ export class BacklogContentService {
     };
 
 
-    public updateTasksList() {
-
-       
-    };
-
-
     public showDescriptionOfCurrentTask(currentTask: TTask) {
 
         if (currentTask.isShowDescription) {

@@ -17,10 +17,12 @@ export enum AddTaskModalActions {
     SET_FIELD_TASK_STATUS = '[AddTaskModal] update task status field value',
     SET_FIELD_TASK_DESCRIPTION = '[AddTaskModal] update task description field value',
     CONFIRM_ADD_TASK = '[AddTaskModal] confirm add task',
+    ADD_TASK_SUCCESS = '[AddTaskModal] add task success'
 };
 
 export enum DeleteTaskModalActions {
     OPEN_DELETE_TASK_MODAL = '[DeleteTaskModal] open delete task modal',
     CLOSE_DELETE_TASK_MODAL = '[DeleteTaskModal] close delete task modal',
-    CONFIRM_DELETE_TASK = '[DeleteTaskModal] confirm delete task'
+    CONFIRM_DELETE_TASK = '[DeleteTaskModal] confirm delete task',
+    DELETE_TASK_SUCCESS = '[DeleteTaskModal]  delete task success'
 };
