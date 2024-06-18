@@ -1,0 +1,40 @@
+.nav-sidebar {
+    position: fixed;
+    width: 260px;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 5px 0 5px #00000033;
+    padding-top: 60px;
+    z-index: 5;
+    background-color: #2F3742;
+
+    &-divide-header {
+        font-size: 20px;
+        font-weight: 500;
+        color: #545F6D;
+        border-bottom: 1px solid #545F6D;
+        padding: 5px 0 5px 30px;
+    }
+
+    &-divide-content {
+        font-size: 16px;
+        font-weight: 400;
+        color: #CCCCCC;
+        padding: 5px 0 5px 30px;
+        transition: 0.2s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #222A35;
+            color: #fff;
+            z-index: 5;
+        }
+    }
+}
+
+
+.ended-nav {
+    border-bottom: none !important;
+}

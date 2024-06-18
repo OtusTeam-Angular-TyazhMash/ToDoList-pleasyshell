@@ -1,0 +1,25 @@
+<section class="backlog-section">
+    <div class="backlog-section-header">
+        <p class="backlog-section-header-text">Задачи</p>
+    </div>
+    <div class="header-of-backlogbody">
+        <p class="header-of-backlogbody-text">ID</p>
+        <p class="header-of-backlogbody-text">Название</p>
+    </div>
+    <div class="container-of-backlog" *ngIf="isLoaded; else loader">
+        <div class="backlog-li" (click)="showDescription(task)" [ngClass]="{'selected': task.isShowDescription}"
+            *ngFor="let task of loadTasks() | async">
+            <div class="infoblock-of-backlog">
+                <p class="id-of-backlog li-style">{{task.Id}}</p>
+                <p class="li-style">{{task.TaskName}}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #loader>
+        <div class="search-loading-modal">
+            <div class="search-loading-block">
+                <img src="assets/images/load.gif">
+            </div>
+        </div>
+    </ng-template>
+</section>

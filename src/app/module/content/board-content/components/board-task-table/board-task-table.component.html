@@ -1,0 +1,27 @@
+<div class="table-container">
+    <div class="filter-container">
+        <list-input [value]="filterByStatus | async" [placeholder]="'Фильтр'" [tableRow]="getAllStatuses()"
+            (valueChange)="onFilterOfTaskStatusChange($event)"></list-input>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Статус</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of getFilterdTasksFromStore()">
+                <td>{{task.Id}}</td>
+                <td>{{task.TaskName}}</td>
+                <td> <label class="checkbox-container">
+                        <input [ngModel]="task.TaskStatus.Id > 1" type="checkbox" disabled>
+                        <span class="checkmark"></span>
+                    </label></td>
+                <td>{{task.Description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

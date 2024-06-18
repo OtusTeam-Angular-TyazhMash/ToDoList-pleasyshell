@@ -1,0 +1,87 @@
+{
+  "tasks": [
+    {
+      "Id": 1,
+      "TaskName": "Изучить RxJs",
+      "Description": "Как же сложно перейти с императивного...",
+      "TaskStatus": {
+        "Id": 1,
+        "Status": "Не выполнена"
+      },
+      "id": "a497"
+    },
+    {
+      "Id": 2,
+      "TaskName": "Выпить таблетки от аллергии",
+      "Description": "Ненавижу лето! Этот тополиный пух разлетается по всему городу и я чихаю :(",
+      "TaskStatus": {
+        "Id": 2,
+        "Status": "Выполнена"
+      },
+      "id": "db26"
+    },
+    {
+      "Id": 15,
+      "TaskName": "Пойти в лес",
+      "Description": "Ментальное здоровье важнее",
+      "TaskStatus": {
+        "Id": 1,
+        "Status": "Не выполнена"
+      },
+      "id": "fc56"
+    },
+    {
+      "id": "b3b1",
+      "Id": 16,
+      "TaskName": "Мечта",
+      "Description": "Какая-то великая мечта, которая должна быть исполнена.",
+      "TaskStatus": {
+        "Id": 1,
+        "Status": "Не выполнена"
+      }
+    },
+    {
+      "id": "6bb4f3ad-bfcd-41c5-9e18-e34c4666e18d",
+      "Id": 17,
+      "TaskName": "Погулять в парке",
+      "Description": "Подумать обо всём.",
+      "isShowDescription": false,
+      "TaskStatus": {
+        "Id": 2,
+        "Status": "Выполнена"
+      }
+    },
+    {
+      "Id": 18,
+      "TaskName": "Сдать курсовую в колледже",
+      "Description": "Курсовую я написал, осталось её защитить... ",
+      "TaskStatus": {
+        "Id": 1,
+        "Status": "Не выполнена"
+      },
+      "id": "1372c63c-84f4-425c-b1a8-6428714101b8"
+    },
+    {
+      "id": "4676ee8d-f3c7-4126-9326-2f312d70ee7b",
+      "Id": 19,
+      "TaskName": "Отдохнуть",
+      "Description": "",
+      "isShowDescription": false,
+      "TaskStatus": {
+        "Id": 1,
+        "Status": "Не выполнена"
+      }
+    },
+    {
+      "id": "1fe229c7-3b8e-4e06-8bbf-52685d929747",
+      "Id": 20,
+      "TaskName": "Покормить кошку",
+      "Description": "Пушистая обжорка",
+      "isShowDescription": false,
+      "TaskStatus": {
+        "Id": 2,
+        "Status": "Выполнена"
+      }
+    }
+  ]
+}

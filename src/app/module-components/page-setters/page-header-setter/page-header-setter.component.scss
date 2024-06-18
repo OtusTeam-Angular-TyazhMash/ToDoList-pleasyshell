@@ -1,0 +1,18 @@
+.page-header-setter {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    gap: 15px;
+    padding: 10px 15px 10px 15px;
+    align-items: center;
+    background-color: #FFF;
+    box-shadow: 1px 0 5px #0000001a;
+
+    &-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #000;
+    }
+}

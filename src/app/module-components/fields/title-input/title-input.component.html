@@ -1,0 +1,5 @@
+<div class="input-container">
+    <input title="" type="text" value="{{value}}" class="input-style" [ngClass]="{'invalid-input': invalidCheckInput()}"
+        (keyup)="onKeyUp($event)" required>
+    <label [ngClass]="{'placeholder-valid': invalidCheckInput()}" class="placeholder-prompt">{{placeholder}}</label>
+</div>

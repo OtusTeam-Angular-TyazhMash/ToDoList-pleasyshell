@@ -1,7 +1,0 @@
-<div class="chosen" *ngFor="let task of loadTasks()">
-    <div class="info">
-        <p class="heading">{{task.Id}}</p>
-        <p class="heading">{{task.TaskName}}</p>
-    </div>
-    <delete-button (click)="deleteTaskById(task.Id)"></delete-button>
-</div>

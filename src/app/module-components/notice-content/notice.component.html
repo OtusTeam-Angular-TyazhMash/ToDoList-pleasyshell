@@ -1,0 +1,15 @@
+<div class="notice-list">
+    <div class="notice-body {{notice.Type}}" *ngFor="let notice of showNotice()" @notice>
+        <img class="close-button-notice close-style" src="assets/images/close.svg"
+            (click)="noticeService.removeNotice(notice.Id)">
+        <div class="notice-body-content">
+            <div class="image-container">
+                <img class="notice-image-style" src="assets/images/{{notice.Type}}.svg">
+            </div>
+            <div class="notice-body-text">
+                <p class="notice-text">{{notice.Message}}</p>
+                <p class="notice-text-info">{{notice.Content}}</p>
+            </div>
+        </div>
+    </div>
+</div>
