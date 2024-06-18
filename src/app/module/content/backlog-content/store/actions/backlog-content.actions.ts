@@ -21,6 +21,7 @@ export const setFieldTaskStatus = createAction(AddTaskModalActions.SET_FIELD_TAS
 export const setFieldTaskDescription = createAction(AddTaskModalActions.SET_FIELD_TASK_DESCRIPTION, props<{ description: string }>());
 export const confirmSaveTask = createAction(AddTaskModalActions.CONFIRM_ADD_TASK, props<{ savedTask: TTask }>());
 export const confirmEditTask = createAction(AddTaskModalActions.CONFIRM_EDIT_TASK, props<{ editedTask: TTask }>());
+export const checkAddTaskModal = createAction(AddTaskModalActions.CHECK_ADD_TASK_MODAL);
 export const saveTaskSuccess = createAction(AddTaskModalActions.ADD_TASK_SUCCESS, props<{ savedTask: TTask }>());
 export const editTaskSuccess = createAction(AddTaskModalActions.EDIT_TASK_SUCCESS, props<{ editedTask: TTask }>());
 

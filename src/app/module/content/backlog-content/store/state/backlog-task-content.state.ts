@@ -17,6 +17,7 @@ export type TDeleteTaskModal = {
 export type TAddTaskModal = {
     isOpen: boolean,
     isEdit: boolean,
+    isCheckedForValid: boolean,
     ModalContent: TTask
 }
 

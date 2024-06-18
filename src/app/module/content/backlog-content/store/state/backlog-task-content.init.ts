@@ -31,6 +31,7 @@ export const initTaskListContentState: TTaskListContentState = {
     },
     AddTaskModal: {
         isOpen: false,
+        isCheckedForValid: false,
         isEdit: false,
         ModalContent: reset()
     }

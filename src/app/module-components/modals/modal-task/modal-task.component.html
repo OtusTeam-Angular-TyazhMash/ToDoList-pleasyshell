@@ -7,9 +7,9 @@
         </div>
         <div class="modal-body">
             <div class="add-task-block">
-                <title-input [checked]="getCheckValidStatus()" [value]="titleOfTask | async" [placeholder]="'Название'"
-                    (valueChange)="onTitleOfTaskChange($event)"></title-input>
-                <list-input [checked]="getCheckValidStatus()" [value]="listOfTaskStatus | async"
+                <title-input [checked]="getModalViewContent().isCheckedForValid" [value]="titleOfTask | async"
+                    [placeholder]="'Название'" (valueChange)="onTitleOfTaskChange($event)"></title-input>
+                <list-input [checked]="getModalViewContent().isCheckedForValid" [value]="listOfTaskStatus | async"
                     [placeholder]="'Статус'" [tableRow]="getStatuses()"
                     (valueChange)="onListOfTaskStatusChange($event)"></list-input>
                 <text-area [value]="textAreaOfTaskDescription | async" [placeholder]="'Описание'"

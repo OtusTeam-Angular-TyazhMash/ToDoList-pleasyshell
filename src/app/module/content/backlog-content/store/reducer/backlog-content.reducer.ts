@@ -5,7 +5,8 @@ import {
     setFieldTaskName, setFieldTaskStatus, setFieldTaskDescription,
     openDeleteTaskModal, closeDeleteTaskModal, confirmDeleteTaskModal,
     confirmSaveTask, deleteTaskSuccess, saveTaskSuccess,
-    confirmEditTask, editTaskSuccess
+    confirmEditTask, editTaskSuccess,
+    checkAddTaskModal
 } from "../actions/backlog-content.actions";
 import { initTaskListContentState, reset } from "../state/backlog-task-content.init";
 import { TTaskListContentState } from "../state/backlog-task-content.state";
@@ -49,6 +50,7 @@ const _tasksReducer = createReducer(
         ...state,
         AddTaskModal: {
             isOpen: true,
+            isCheckedForValid: false,
             isEdit: task !== undefined && task.Id !== 0,
             ModalContent: task !== undefined ? task : reset()
         }
@@ -57,6 +59,7 @@ const _tasksReducer = createReducer(
         ...state,
         AddTaskModal: {
             isOpen: false,
+            isCheckedForValid: false,
             isEdit: false,
             ModalContent: reset()
         }
@@ -93,6 +96,13 @@ const _tasksReducer = createReducer(
     })),
     on(confirmSaveTask, (state) => state),
     on(confirmEditTask, (state) => state),
+    on(checkAddTaskModal, (state) => ({
+        ...state,
+        AddTaskModal: {
+            ...state.AddTaskModal,
+            isCheckedForValid: true
+        }
+    })),
     on(saveTaskSuccess, (state, { savedTask }) => ({
         ...state,
         TasksList: [

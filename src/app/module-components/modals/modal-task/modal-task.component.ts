@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import {
-    TAddTaskModal, TStatus, TTaskListContentState, selectModalAddTaskState,
+    TAddTaskModal, TStatus, TTaskListContentState, checkAddTaskModal, selectModalAddTaskState,
     setFieldTaskDescription, setFieldTaskName, setFieldTaskStatus
 } from 'src/app/module/content/backlog-content/store';
 import { BacklogAddModalService, NoticeService } from 'src/app/services';
@@ -33,7 +33,6 @@ export class ModalTaskComponent {
 
 
     private viewContent!: TAddTaskModal;
-    private isValidCheckData: boolean = false;
     private allStatuses: TStatus[] = [
         {
             Id: 1,
@@ -63,11 +62,6 @@ export class ModalTaskComponent {
     protected getModalViewContent(): TAddTaskModal {
 
         return this.viewContent;
-    };
-
-    protected getCheckValidStatus(): boolean {
-
-        return this.isValidCheckData;
     };
 
     protected getStatuses(): TStatus[] {
@@ -110,7 +104,7 @@ export class ModalTaskComponent {
 
         const notice = this.notice;
 
-        this.isValidCheckData = true;
+        this.store.dispatch(checkAddTaskModal());
         notice.warning('Заполните обязательные поля!');
     };
 

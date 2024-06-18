@@ -30,4 +30,4 @@ export class TitleInputComponent {
         return this.checked;
     };
 
-}
+};

@@ -18,6 +18,7 @@ export enum AddTaskModalActions {
     SET_FIELD_TASK_DESCRIPTION = '[AddTaskModal] update task description field value',
     CONFIRM_ADD_TASK = '[AddTaskModal] confirm add task',
     CONFIRM_EDIT_TASK = '[AddTaskModal] confirm edit task',
+    CHECK_ADD_TASK_MODAL = '[AddTaskModal] check add task modal',
     ADD_TASK_SUCCESS = '[AddTaskModal] add task success',
     EDIT_TASK_SUCCESS = '[AddTaskModal] edit task success',
 };
