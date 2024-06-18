@@ -5,9 +5,7 @@ import {
     TAddTaskModal, TStatus, TTaskListContentState, selectModalAddTaskState,
     setFieldTaskDescription, setFieldTaskName, setFieldTaskStatus
 } from 'src/app/module/content/backlog-content/store';
-import {
-    BacklogAddModalService
-} from 'src/app/services';
+import { BacklogAddModalService } from 'src/app/services';
 import { openList, openWindow } from 'src/utils/animations';
 
 @Component({
@@ -73,7 +71,7 @@ export class ModalTaskComponent {
 
     protected onTitleOfTaskChange(_taskname: string) {
 
-        this.store.dispatch(setFieldTaskName({ taskname: _taskname }))
+        this.store.dispatch(setFieldTaskName({ taskname: _taskname }));
     };
 
     protected onListOfTaskStatusChange(_status: TStatus) {
@@ -89,7 +87,13 @@ export class ModalTaskComponent {
 
     protected confirmSaveTask() {
 
-        this.backlogAddModalService.saveTask();
+        if (!this.viewContent.isEdit) {
+
+            this.backlogAddModalService.saveTask();
+            return;
+        };
+
+        this.backlogAddModalService.editTask();
     };
 
 

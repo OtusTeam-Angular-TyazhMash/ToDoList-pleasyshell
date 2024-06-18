@@ -17,7 +17,9 @@ export enum AddTaskModalActions {
     SET_FIELD_TASK_STATUS = '[AddTaskModal] update task status field value',
     SET_FIELD_TASK_DESCRIPTION = '[AddTaskModal] update task description field value',
     CONFIRM_ADD_TASK = '[AddTaskModal] confirm add task',
-    ADD_TASK_SUCCESS = '[AddTaskModal] add task success'
+    CONFIRM_EDIT_TASK = '[AddTaskModal] confirm edit task',
+    ADD_TASK_SUCCESS = '[AddTaskModal] add task success',
+    EDIT_TASK_SUCCESS = '[AddTaskModal] edit task success',
 };
 
 export enum DeleteTaskModalActions {

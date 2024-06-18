@@ -4,7 +4,8 @@ import {
     removeShowCurrentTask, openAddTaskModal, closeAddTaskModal,
     setFieldTaskName, setFieldTaskStatus, setFieldTaskDescription,
     openDeleteTaskModal, closeDeleteTaskModal, confirmDeleteTaskModal,
-    confirmSaveTask, deleteTaskSuccess, saveTaskSuccess
+    confirmSaveTask, deleteTaskSuccess, saveTaskSuccess,
+    confirmEditTask, editTaskSuccess
 } from "../actions/backlog-content.actions";
 import { initTaskListContentState, reset } from "../state/backlog-task-content.init";
 import { TTaskListContentState } from "../state/backlog-task-content.state";
@@ -21,6 +22,7 @@ const _tasksReducer = createReducer(
             ...task, isShowDescription: false
         })),
     })),
+
 
     on(showCurrentTask, (state, { task }) => ({
         ...state,
@@ -41,6 +43,7 @@ const _tasksReducer = createReducer(
             isShowDescription: false
         })),
     })),
+
 
     on(openAddTaskModal, (state, { task }) => ({
         ...state,
@@ -89,13 +92,26 @@ const _tasksReducer = createReducer(
         }
     })),
     on(confirmSaveTask, (state) => state),
-    on(saveTaskSuccess, (state, { task }) => ({
+    on(confirmEditTask, (state) => state),
+    on(saveTaskSuccess, (state, { savedTask }) => ({
         ...state,
         TasksList: [
             ...state.TasksList,
-            task
+            savedTask
         ]
     })),
+    on(editTaskSuccess, (state, action) => {
+
+        const updatedTasks = state.TasksList.map(
+            task => action.editedTask.Id === task.Id ? action.editedTask : task
+        );
+
+        return {
+            ...state,
+            TasksList: updatedTasks
+        };
+    }),
+
 
     on(openDeleteTaskModal, (state, { task }) => ({
         ...state,

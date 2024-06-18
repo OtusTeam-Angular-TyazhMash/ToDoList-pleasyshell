@@ -31,22 +31,28 @@ export const selectModalAddTask = createSelector(
     (state: TTaskListContentState) => state.AddTaskModal.ModalContent
 );
 
+export const selectEditModeModalAddTask = createSelector(
+
+    selectTasksState,
+    (state: TTaskListContentState) => state.AddTaskModal.isEdit
+);
+
 export const selectTitleOfTask = createSelector(
 
     selectTasksState,
-    (state: TTaskListContentState) => state.DeleteTaskModal.ModalContent.TaskName
+    (state: TTaskListContentState) => state.AddTaskModal.ModalContent.TaskName
 );
 
 export const selectListOfTaskStatus = createSelector(
 
     selectTasksState,
-    (state: TTaskListContentState) => state.DeleteTaskModal.ModalContent.TaskStatus
+    (state: TTaskListContentState) => state.AddTaskModal.ModalContent.TaskStatus
 );
 
 export const selectListOfTaskDescription = createSelector(
 
     selectTasksState,
-    (state: TTaskListContentState) => state.DeleteTaskModal.ModalContent.Description
+    (state: TTaskListContentState) => state.AddTaskModal.ModalContent.Description
 );
 
 

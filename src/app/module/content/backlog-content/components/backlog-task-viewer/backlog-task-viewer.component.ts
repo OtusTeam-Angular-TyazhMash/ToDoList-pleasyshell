@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { BacklogContentService, BacklogDeleteModalService } from 'src/app/services';
+import { BacklogAddModalService, BacklogContentService, BacklogDeleteModalService } from 'src/app/services';
 import {
     TTask,
-    TTaskListContentState, removeShowCurrentTask, reset
+    TTaskListContentState, openAddTaskModal, removeShowCurrentTask, reset
 } from '../../store';
 import { Store } from '@ngrx/store';
 
@@ -18,7 +18,8 @@ export class BacklogTaskViewerComponent {
         private store: Store<TTaskListContentState>,
 
         private backlogContentService: BacklogContentService,
-        private backlogDeleteModalService: BacklogDeleteModalService
+        private backlogDeleteModalService: BacklogDeleteModalService,
+        private backlogAddModalService: BacklogAddModalService
     ) { }
 
 
@@ -50,7 +51,7 @@ export class BacklogTaskViewerComponent {
 
     protected openEditModal(task: TTask) {
 
-        // this.backlogAddModalService.openAddTaskModal(task);
-    };
+        this.backlogAddModalService.openAddTaskModal(task);
+    };;
 
 };

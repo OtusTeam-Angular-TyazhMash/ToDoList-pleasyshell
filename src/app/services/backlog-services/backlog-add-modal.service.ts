@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import {
-    TAddTaskModal, TDeleteTaskModal, TStatus,
-    TTask, TTaskListContentState, closeAddTaskModal,
-    confirmSaveTask, openAddTaskModal, selectListOfTaskDescription,
-    selectListOfTaskStatus, selectModalAddTaskState, selectTasks,
-    selectTitleOfTask,
+    TAddTaskModal, TStatus, TTask,
+    TTaskListContentState, closeAddTaskModal, confirmEditTask, confirmSaveTask,
+    openAddTaskModal, selectListOfTaskDescription, selectListOfTaskStatus,
+    selectModalAddTaskState, selectTasks, selectTitleOfTask,
 } from 'src/app/module/content/backlog-content/store';
 import { Observable, map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -37,15 +36,15 @@ export class BacklogAddModalService {
     public textAreaOfTaskDescriptionInit$: Observable<string>;
 
 
-    public getAddedTask(): Observable<TDeleteTaskModal> {
+    public openAddTaskModal(item?: TTask) {
 
-        return this.modalAddTask$;
-    };
+        if (!item) {
 
+            this.store.dispatch(openAddTaskModal({ task: undefined }));
+            return;
+        };
 
-    public openAddTaskModal() {
-
-        this.store.dispatch(openAddTaskModal({ task: undefined }));
+        this.store.dispatch(openAddTaskModal({ task: item }));
     };
 
     public closeAddTaskModal() {
@@ -61,7 +60,7 @@ export class BacklogAddModalService {
         this.store.select(selectTasks).pipe(
             take(1),
             map(tasks => {
-                const maxId = tasks.reduce((max, task) => task.Id > max ? task.Id : max, 0);
+                const maxId = tasks.reduce((result, task) => task.Id > result ? task.Id : result, 0);
                 return maxId;
             })
         ).subscribe(maxId => {
@@ -71,18 +70,31 @@ export class BacklogAddModalService {
 
                 if (modalTask) {
 
-                    const generateJSONId = uuid.v4()
+                    const generateJSONServerId = uuid.v4();
 
-                    const newTask: TTask = {
+                    const _savedTask: TTask = {
                         ...modalTask,
                         Id: maxId + 1,
-                        id: generateJSONId
+                        id: generateJSONServerId
                     };
 
-                    this.store.dispatch(confirmSaveTask({ task: newTask }));
-                    notice.success('Добавлена задача: ', `${newTask.TaskName}`);
+                    this.store.dispatch(confirmSaveTask({ savedTask: _savedTask }));
+                    notice.success('Добавлена задача: ', `${_savedTask.TaskName}`);
                 };
             });
+        });
+    };
+
+    public editTask() {
+
+        const notice = this.notice;
+
+        this.modalAddTask$.pipe(take(1)).subscribe((modalState: TAddTaskModal) => {
+
+            const _editedTask = modalState.ModalContent;
+
+            this.store.dispatch(confirmEditTask({ editedTask: _editedTask }));
+            notice.edit('Редактирована задача: ', `${_editedTask.TaskName}`);
         });
     };
 

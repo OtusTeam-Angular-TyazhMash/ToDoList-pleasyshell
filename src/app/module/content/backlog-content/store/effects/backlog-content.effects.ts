@@ -5,7 +5,8 @@ import { FakeApiService } from "src/app/services/api/fake-api.service";
 import {
     loadTasks, loadTasksSuccess, confirmDeleteTaskModal,
     closeDeleteTaskModal, confirmSaveTask, closeAddTaskModal,
-    deleteTaskSuccess, saveTaskSuccess, removeShowCurrentTask
+    deleteTaskSuccess, saveTaskSuccess, removeShowCurrentTask,
+    confirmEditTask, editTaskSuccess
 } from "../actions/backlog-content.actions";
 
 
@@ -53,10 +54,25 @@ export class BacklogContentEffects {
         this.actions$.pipe(
             ofType(confirmSaveTask),
             mergeMap((action) =>
-                this.api.saveTaskOnServer(action.task).pipe(
+                this.api.saveTaskOnServer(action.savedTask).pipe(
                     mergeMap(() => [
                         closeAddTaskModal(),
-                        saveTaskSuccess({ task: action.task })
+                        saveTaskSuccess({ savedTask: action.savedTask })
+                    ])
+                )
+            )
+        )
+    );
+
+    protected confirmEditTask$ = createEffect(() =>
+
+        this.actions$.pipe(
+            ofType(confirmEditTask),
+            mergeMap((action) =>
+                this.api.updateTaskFromServer(action.editedTask).pipe(
+                    mergeMap(() => [
+                        closeAddTaskModal(),
+                        editTaskSuccess({ editedTask: action.editedTask })
                     ])
                 )
             )
