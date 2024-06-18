@@ -1,5 +1,5 @@
 import {
-    Component, EventEmitter,
+    Component, ElementRef, EventEmitter,
     Input, Output
 } from '@angular/core';
 import { openList } from 'src/utils/animations';
@@ -9,10 +9,18 @@ import { openList } from 'src/utils/animations';
     selector: 'list-input',
     templateUrl: './list-input.component.html',
     styleUrls: ['../selectable-fields-style.component.scss'],
-    animations: [openList]
+    animations: [openList],
+    host: {
+        '(document:click)': 'onClickOutSide($event)'
+    },
 })
 
 export class ListInputComponent {
+
+
+    constructor(
+        private elem: ElementRef
+    ) { }
 
 
     @Input() placeholder: string = '';
@@ -37,6 +45,14 @@ export class ListInputComponent {
         this.value = itemRow;
 
         this.isOpen = false;
+    };
+
+    protected onClickOutSide(event: Event) {
+
+        if (!this.elem.nativeElement.contains(event.target)) {
+
+            this.isOpen = false;
+        };
     };
 
 
