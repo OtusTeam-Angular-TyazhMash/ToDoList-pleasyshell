@@ -1,7 +1,8 @@
 <div class="input-container">
-    <input title="" type="text" value="{{value.Name || value.Status}}" class="input-style list-input"
-        (click)="openList()" required disableTyping>
-    <label class="placeholder-prompt">{{placeholder}}</label>
+    <input title="" [ngClass]="{'invalid-input': invalidCheckInput()}" type="text"
+        value="{{value.Name || value.Status}}" class="input-style list-input" (click)="openList()" required
+        disableTyping>
+    <label [ngClass]="{'placeholder-valid': invalidCheckInput()}" class="placeholder-prompt">{{placeholder}}</label>
     <img class="icon-abs-style list-style" src="assets/images/list.svg" [ngStyle]="{'transform': listSelected()}">
     <div class="modal-list" *ngIf="isOpen" @showList>
         <div class="list">

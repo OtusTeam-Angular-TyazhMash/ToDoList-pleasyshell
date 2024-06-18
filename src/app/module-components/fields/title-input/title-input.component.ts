@@ -12,6 +12,7 @@ export class TitleInputComponent {
 
     @Input() placeholder: string = '';
     @Input() value: unknown = '';
+    @Input() checked: boolean = false;
 
     @Output() valueChange = new EventEmitter<any>();
 
@@ -22,6 +23,11 @@ export class TitleInputComponent {
 
         this.valueChange.emit(input.value);
         this.value = input.value;
+    };
+
+    protected invalidCheckInput(): boolean {
+
+        return this.checked;
     };
 
 }

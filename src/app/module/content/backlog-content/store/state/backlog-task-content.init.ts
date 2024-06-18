@@ -15,6 +15,13 @@ export const reset = () => {
     }
 };
 
+export const statusReset = () => {
+    return {
+        Id: 0,
+        Status: ''
+    }
+};
+
 export const initTaskListContentState: TTaskListContentState = {
     TasksList: [],
     SelectedTask: reset(),

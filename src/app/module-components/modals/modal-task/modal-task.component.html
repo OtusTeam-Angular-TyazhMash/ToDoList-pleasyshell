@@ -1,14 +1,19 @@
 <div class="modal-background" *ngIf="getModalViewContent().isOpen" @showModal>
     <div class="modal-window modal-add-task">
         <div class="modal-header">
-            <p class="modal-headertext-style">{{!getModalViewContent().isEdit ? 'Добавить задачу' : 'Редактирование задачи'}}</p>
+            <p class="modal-headertext-style">{{!getModalViewContent().isEdit ? 'Добавить задачу' : 'Редактирование
+                задачи'}}</p>
             <img class="button-fix close-button" src="assets/images/close.svg" (click)="closeModal()">
         </div>
         <div class="modal-body">
             <div class="add-task-block">
-                    <title-input [value]="titleOfTask | async" [placeholder]="'Название'" (valueChange)="onTitleOfTaskChange($event)"></title-input>
-                    <list-input [value]="listOfTaskStatus | async" [placeholder]="'Статус'" [tableRow]="getStatuses()" (valueChange)="onListOfTaskStatusChange($event)"></list-input>
-                    <text-area [value]="textAreaOfTaskDescription | async" [placeholder]="'Описание'" (valueChange)="onTextAreaTaskDescriptionChange($event)"></text-area>
+                <title-input [checked]="getCheckValidStatus()" [value]="titleOfTask | async" [placeholder]="'Название'"
+                    (valueChange)="onTitleOfTaskChange($event)"></title-input>
+                <list-input [checked]="getCheckValidStatus()" [value]="listOfTaskStatus | async"
+                    [placeholder]="'Статус'" [tableRow]="getStatuses()"
+                    (valueChange)="onListOfTaskStatusChange($event)"></list-input>
+                <text-area [value]="textAreaOfTaskDescription | async" [placeholder]="'Описание'"
+                    (valueChange)="onTextAreaTaskDescriptionChange($event)"></text-area>
             </div>
             <div class="modal-footer fix-footer">
                 <save-button toolTip title="Сохранить" (click)="confirmSaveTask()"></save-button>

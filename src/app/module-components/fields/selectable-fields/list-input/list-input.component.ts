@@ -26,6 +26,7 @@ export class ListInputComponent {
     @Input() placeholder: string = '';
     @Input() value: any = '';
     @Input() tableRow: any = [];
+    @Input() checked: boolean = false;
 
     @Output() valueChange = new EventEmitter<any>();
 
@@ -55,12 +56,14 @@ export class ListInputComponent {
         };
     };
 
+    protected invalidCheckInput(): boolean {
+
+        return this.checked;
+    };
+
 
     protected openList() {
 
         this.isOpen = true;
     };
-
-
-
 };

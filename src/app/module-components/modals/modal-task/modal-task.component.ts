@@ -5,7 +5,7 @@ import {
     TAddTaskModal, TStatus, TTaskListContentState, selectModalAddTaskState,
     setFieldTaskDescription, setFieldTaskName, setFieldTaskStatus
 } from 'src/app/module/content/backlog-content/store';
-import { BacklogAddModalService } from 'src/app/services';
+import { BacklogAddModalService, NoticeService } from 'src/app/services';
 import { openList, openWindow } from 'src/utils/animations';
 
 @Component({
@@ -21,7 +21,8 @@ export class ModalTaskComponent {
 
     constructor(
         private store: Store<TTaskListContentState>,
-        private backlogAddModalService: BacklogAddModalService
+        private backlogAddModalService: BacklogAddModalService,
+        private notice: NoticeService
     ) {
         this.addTaskModalExist();
 
@@ -32,6 +33,7 @@ export class ModalTaskComponent {
 
 
     private viewContent!: TAddTaskModal;
+    private isValidCheckData: boolean = false;
     private allStatuses: TStatus[] = [
         {
             Id: 1,
@@ -63,6 +65,11 @@ export class ModalTaskComponent {
         return this.viewContent;
     };
 
+    protected getCheckValidStatus(): boolean {
+
+        return this.isValidCheckData;
+    };
+
     protected getStatuses(): TStatus[] {
 
         return this.allStatuses;
@@ -87,6 +94,28 @@ export class ModalTaskComponent {
 
     protected confirmSaveTask() {
 
+        const validStatus = this.backlogAddModalService.getValidData().valid;
+
+        validStatus !== false ? this.validSuccessful() : this.validUnsuccesful();
+    };
+
+
+    protected closeModal() {
+
+        this.backlogAddModalService.closeAddTaskModal();
+    };
+
+
+    private validUnsuccesful() {
+
+        const notice = this.notice;
+
+        this.isValidCheckData = true;
+        notice.warning('Заполните обязательные поля!');
+    };
+
+    private validSuccessful() {
+
         if (!this.viewContent.isEdit) {
 
             this.backlogAddModalService.saveTask();
@@ -94,12 +123,6 @@ export class ModalTaskComponent {
         };
 
         this.backlogAddModalService.editTask();
-    };
-
-
-    protected closeModal() {
-
-        this.backlogAddModalService.closeAddTaskModal();
     };
 
 };
