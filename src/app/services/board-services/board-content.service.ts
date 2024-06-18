@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { TTask } from 'src/app/module/content/backlog-content/store';
 import {
     TBoardTasksListContentState, TFilter, selectFilterData,
-    selectBoardTasks
+    selectBoardTasks,
+    selectFilteredBoardTasks
 } from 'src/app/module/content/board-content/store';
 import { loadTasksForBoard } from 'src/app/module/content/board-content/store/actions/board-content.actions';
 
@@ -42,7 +43,10 @@ export class BoardContentService {
 
     public setFilteredTasksByStatus() {
 
-        
+        this.store.select(selectFilteredBoardTasks).subscribe(result => {
+
+            this.viewTasks = result;
+        });
     };
 
 };

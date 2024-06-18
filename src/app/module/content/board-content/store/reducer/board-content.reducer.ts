@@ -21,16 +21,6 @@ const _boardReducer = createReducer(
 
 );
 
-// let filteredTasks = state.BoardTasksList;
-
-//         if (filter.Id !== 0) {
-
-//             filteredTasks = state.BoardTasksList.filter(task =>
-//                 task.TaskStatus.Id === filter.Id
-//             );
-
-//         };
-
 export function boardReducer(state: TBoardTasksListContentState | undefined, action: Action) {
 
     return _boardReducer(state, action);
