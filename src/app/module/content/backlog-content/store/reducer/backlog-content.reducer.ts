@@ -5,8 +5,7 @@ import {
     setFieldTaskName, setFieldTaskStatus, setFieldTaskDescription,
     openDeleteTaskModal, closeDeleteTaskModal, confirmDeleteTaskModal,
     confirmSaveTask, deleteTaskSuccess, saveTaskSuccess,
-    confirmEditTask, editTaskSuccess,
-    checkAddTaskModal
+    confirmEditTask, editTaskSuccess, checkAddTaskModal
 } from "../actions/backlog-content.actions";
 import { initTaskListContentState, reset } from "../state/backlog-task-content.init";
 import { TTaskListContentState } from "../state/backlog-task-content.state";

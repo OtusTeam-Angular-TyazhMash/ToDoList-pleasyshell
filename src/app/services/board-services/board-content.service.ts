@@ -1,58 +1,48 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { FakeApiService } from '../api/fake-api.service';
-import { BoardFilterService } from './board-filter.service';
-import { BacklogContentService } from '../backlog-services/backlog-content.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { TTask } from 'src/app/module/content/backlog-content/store';
+import {
+    TBoardTasksListContentState, TFilter, selectFilterData,
+    selectBoardTasks
+} from 'src/app/module/content/board-content/store';
+import { loadTasksForBoard } from 'src/app/module/content/board-content/store/actions/board-content.actions';
 
 @Injectable()
 
 export class BoardContentService {
 
 
-    // constructor(
-    //     private api: FakeApiService,
-    //     private boardFilterService: BoardFilterService,
-    //     private backlogContentService: BacklogContentService,
-    //     private router: Router
-    // ) {
-    //     this.api.getTasksFromServer().subscribe((tasks: TTask[]) => {
+    constructor(
+        private store: Store<TBoardTasksListContentState>,
+        private router: Router
+    ) {
+        this.store.dispatch(loadTasksForBoard())
+        this.store.select(selectBoardTasks).subscribe(result => {
 
-    //         this.boardTable = tasks;
-    //     });
-    // };
+            this.viewTasks = result;
+        });
 
-
-    // private boardTable: TTask[] = [];
+        this.filterByStatusInit$ = this.store.select(selectFilterData);
+    };
 
 
-    // public filterData(): TTask[] {
-
-    //     // const filterVal = this.boardFilterService.getFilterValue();
-    //     // const tasks = this.boardTable;
-
-    //     // if (filterVal === 'Все') {
-
-    //     //     return tasks;
-
-    //     // } else if (filterVal === 'Выполнены') {
-
-    //     //     return tasks.filter(task => task.TaskStatus.Id !== 1);
-
-    //     // } else if (filterVal === 'Не выполнены') {
-
-    //     //     return tasks.filter(task => task.TaskStatus.Id === 1);
-
-    //     // } else {
-
-    //     //     return tasks;
-    //     // };
-    // };
+    private viewTasks: TTask[] = [];
 
 
-    // public openTaskDetail(task: TTask) {
+    public filterByStatusInit$: Observable<TFilter>;
 
-    //     // this.backlogContentService.setDetailTask(task);
-    //     // this.router.navigate(['backlog', task.Id]);
-    // };
+
+    public getFilteredTasks(): TTask[] {
+
+        return this.viewTasks;
+    };
+
+
+    public setFilteredTasksByStatus() {
+
+        
+    };
 
 };

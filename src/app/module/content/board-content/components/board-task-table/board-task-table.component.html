@@ -1,19 +1,7 @@
-<!-- <div class="table-container">
+<div class="table-container">
     <div class="filter-container">
-        <div class="input-container">
-            <input (click)="openFilterList()" [ngModel]="filterValue()" title="" type="text"
-                class="input-style list-input" required disableTyping>
-            <label class="placeholder-prompt">Фильтр</label>
-            <img [ngStyle]="{'transform': openList()}" class="icon-abs-style list-style" src="assets/images/list.svg">
-            <div class="modal-list" *ngIf="filterStatus()" @showList>
-                <div class="list">
-                    <div class="list-container" *ngFor="let filter of filterList()"
-                        (click)="activateCurrentFilter(filter.FilterName)">
-                        <p class="item-main">{{filter.FilterName}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <list-input [value]="filterByStatus | async" [placeholder]="'Фильтр'" [tableRow]="getAllStatuses()"
+            (valueChange)="onFilterOfTaskStatusChange($event)"></list-input>
     </div>
     <table>
         <thead>
@@ -25,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let task of getTasks()" (click)="openDetail(task)">
+            <tr *ngFor="let task of getFilterdTasksFromStore()">
                 <td>{{task.Id}}</td>
                 <td>{{task.TaskName}}</td>
                 <td> <label class="checkbox-container">
@@ -36,4 +24,4 @@
             </tr>
         </tbody>
     </table>
-</div> -->
+</div>

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { BoardFilterService } from 'src/app/services';
+import { Observable } from 'rxjs';
 import { BoardContentService } from 'src/app/services/board-services/board-content.service';
-import { openList } from 'src/utils/animations';
+import { TStatus, TTask } from '../../../backlog-content/store';
+import { TBoardTasksListContentState, TFilter } from '../../store';
+import { Store } from '@ngrx/store';
+import { setFieldTaskStatus } from '../../store/actions/board-content.actions';
 
 @Component({
     selector: 'board-task-table',
     templateUrl: './board-task-table.component.html',
-    styleUrls: ['./board-task-table.component.scss'],
-    animations: [openList]
+    styleUrls: ['./board-task-table.component.scss']
 })
 
 export class BoardTaskTableComponent {
@@ -15,51 +17,46 @@ export class BoardTaskTableComponent {
 
     constructor(
         private boardContentService: BoardContentService,
-        private boardFilterService: BoardFilterService
-    ) { }
+        private store: Store<TBoardTasksListContentState>,
+    ) {
+        this.filterByStatus = boardContentService.filterByStatusInit$;
+    };
 
 
-    // protected getTasks(): TTask[] {
-
-    //     return this.boardContentService.filterData();
-    // };
-
-
-    // protected openDetail(task: TTask) {
-
-    //     this.boardContentService.openTaskDetail(task);
-    // };
-
-
-    // protected openFilterList(): boolean {
-
-    //     return this.boardFilterService.openFilter();
-    // };
-
-    // protected openList(): string {
-
-    //     return this.boardFilterService.listStyle();
-    // };
+    private allFilters: TFilter[] = [
+        {
+            Id: 0,
+            FilterName: 'Все'
+        },
+        {
+            Id: 1,
+            FilterName: 'Не выполнены'
+        },
+        {
+            Id: 2,
+            FilterName: 'Выполнены'
+        },
+    ];
 
 
-    // protected filterStatus(): boolean {
+    protected filterByStatus: Observable<TFilter>;
 
-    //     return this.boardFilterService.getFilterStatus();
-    // };
 
-    // protected filterValue(): string {
+    protected getFilterdTasksFromStore(): TTask[] {
 
-    //     return this.boardFilterService.getFilterValue();
-    // };
+        return this.boardContentService.getFilteredTasks();
+    };
 
-    // protected filterList(): TFilterTask[] {
+    protected getAllStatuses(): TFilter[] {
 
-    //     return this.boardFilterService.getFilterContent();
-    // };
+        return this.allFilters;
+    };
 
-    // protected activateCurrentFilter(status: string) {
 
-    //     this.boardFilterService.setTaskFilter(status);
-    // };
+    protected onFilterOfTaskStatusChange(_filter: TFilter) {
+
+        this.store.dispatch(setFieldTaskStatus({filter: _filter}));
+        this.boardContentService.setFilteredTasksByStatus();
+    };
 
 };

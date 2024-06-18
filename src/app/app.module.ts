@@ -5,8 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavSharedModule } from './module/nav/nav-shared.module';
 import {
-    BacklogContentService, BoardFilterService,
-    NoticeService
+    BacklogContentService, NoticeService
 } from './services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FakeApiService } from './services/api/fake-api.service';
@@ -31,7 +30,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ],
     bootstrap: [AppComponent],
     providers: [NoticeService, FakeApiService,
-        BacklogContentService, BoardFilterService]
+        BacklogContentService]
 })
 
 export class AppModule { }

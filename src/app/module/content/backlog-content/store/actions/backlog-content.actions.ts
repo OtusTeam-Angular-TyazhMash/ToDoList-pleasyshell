@@ -3,7 +3,7 @@ import { TStatus, TTask } from "../state/backlog-task-content.state";
 import {
     TasksListActions, SelectedTaskActions,
     AddTaskModalActions, DeleteTaskModalActions
-} from "./actions.enum";
+} from "./backlog-actions.enum";
 
 
 export const loadTasks = createAction(TasksListActions.LOAD_TASKS);

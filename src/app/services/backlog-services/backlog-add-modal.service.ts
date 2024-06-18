@@ -36,7 +36,7 @@ export class BacklogAddModalService {
         this.validAddTask = fb.group({
 
             TaskName: new FormControl('', Validators.required),
-            Status: new FormControl('', [Validators.required, this.customTaskStatusValidator.bind(this)]),
+            Status: new FormControl('', [Validators.required, this.customTaskStatusValidator]),
             Description: new FormControl('')
         });
 
