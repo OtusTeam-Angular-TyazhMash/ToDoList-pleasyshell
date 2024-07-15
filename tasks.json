@@ -73,15 +73,14 @@
       }
     },
     {
-      "id": "1fe229c7-3b8e-4e06-8bbf-52685d929747",
       "Id": 20,
       "TaskName": "Покормить кошку",
       "Description": "Пушистая обжорка",
-      "isShowDescription": false,
       "TaskStatus": {
         "Id": 2,
         "Status": "Выполнена"
-      }
+      },
+      "id": "1fe229c7-3b8e-4e06-8bbf-52685d929747"
     }
   ]
 }

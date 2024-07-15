@@ -30,6 +30,7 @@ export const selectFilteredBoardTasks = createSelector(
             return filteredTasks.filter(task =>
                 task.TaskStatus.Id === filter.Id
             );
+            
         } else {
 
             return filteredTasks;

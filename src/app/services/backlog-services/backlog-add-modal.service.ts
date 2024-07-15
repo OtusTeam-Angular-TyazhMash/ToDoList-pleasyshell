@@ -5,7 +5,6 @@ import {
     confirmSaveTask, openAddTaskModal, selectListOfTaskDescription,
     selectListOfTaskStatus, selectModalAddTaskState, selectTasks,
     selectTitleOfTask,
-    statusReset,
 } from 'src/app/module/content/backlog-content/store';
 import { Observable, map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
