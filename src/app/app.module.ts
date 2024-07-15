@@ -1,39 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
+import { NgModule, isDevMode } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './module/nav-menu/nav-menu.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavSharedModule } from './module/nav/nav-shared.module';
+import {
+    BacklogContentService, NoticeService
+} from './services';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FakeApiService } from './services/api/fake-api.service';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 
-import { ToDoListComponent } from './module/content';
-import { ToDoListFormComponent } from './module/content/todolist-content/todolist-form/todolist-form.component';
-import { AddedTasksComponent } from './module/content/todolist-content/todolist-form/components/added-tasks/added-tasks.component';
+export function httpLoaderFactory(http: HttpClient) {
 
-import { ToDoListService } from './services';
-import { SharedButtonsModule } from './module/components/buttons/shared-buttons.module';
+    return new TranslateHttpLoader(http);
+};
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    ToDoListComponent,
-    ToDoListFormComponent,
-    AddedTasksComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    SharedButtonsModule,
-    RouterModule.forRoot([
-      { path: '', component: ToDoListComponent, pathMatch: 'full' },
-    ])
-  ],
-  providers: [ToDoListService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NavSharedModule,
+        BrowserAnimationsModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot({}),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
+    ],
+    bootstrap: [AppComponent],
+    providers: [NoticeService, FakeApiService,
+        BacklogContentService]
 })
+
 export class AppModule { }

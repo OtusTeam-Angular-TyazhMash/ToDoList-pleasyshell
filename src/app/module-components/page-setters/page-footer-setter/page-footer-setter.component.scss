@@ -1,0 +1,13 @@
+.page-footer-setter {
+    padding-left: 260px;
+    background-color: #FFF;
+    height: 60px;
+    box-shadow: 1px 0 5px rgb(0 0 0 / 10%);
+
+    &-text {
+      color: #444;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 20px;
+    }
+  }

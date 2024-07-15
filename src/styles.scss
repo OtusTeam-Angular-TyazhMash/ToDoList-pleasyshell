@@ -3,79 +3,459 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
-  text-decoration: none;
-  user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    user-select: none;
 }
 
 body {
-  background: #F7FAFC;
-  overflow: hidden;
+    background: #F7FAFC;
+    overflow: hidden;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    width: 100%;
+}
+
+/* cyrillic-ext */
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 1000;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 1000;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 1000;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 1000;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 1000;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 input {
-  outline: none;
+    outline: none;
 }
 
 input[type=text] {
-  padding: 8px 40px 8px 15px;
-  color: #212529;
-  font-size: 16px;
+    padding: 8px 40px 8px 15px;
+    color: #212529;
+    font-size: 16px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+input[type=number] {
+    padding: 8px 15px 8px 15px;
+    color: #212529;
+    font-size: 16px;
+}
+
+input[type=file] {
+    display: none;
 }
 
 textarea {
-  padding: 8px 15px 8px 15px;
-  color: #212529;
-  font-size: 16px;
-  resize: none;
-  outline: none;
+    padding: 8px 15px 8px 15px;
+    color: #212529;
+    font-size: 16px;
+    resize: none;
+    outline: none;
 }
 
 button {
-  height: 35px;
-  padding: 6px 15px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+    height: 35px;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
 
 button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 img {
-  vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 p {
-  margin: 0 !important;
+    margin: 0 !important;
 }
 
 .close-window-fix {
-  height: 17px;
+    height: 17px;
 }
 
 .fix-footer {
-  margin-top: -8px;
+    margin-top: -8px;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .button-fix {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 li,
 ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 
@@ -87,33 +467,200 @@ ul {
 
 
 .text-in-buttons {
-  color: #FFF;
-  text-align: center;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 200;
-  margin-top: -4px;
+    color: #FFF;
+    text-align: center;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    margin-top: -4px;
 }
 
 .text-in-buttons.back {
-  color: #212529;
+    color: #212529;
 }
 
 .list-style {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 .list-style-open {
-  width: 20px;
-  height: 20px;
-  rotate: 180deg;
+    width: 20px;
+    height: 20px;
+    rotate: 180deg;
 }
 
-.list-input {
-  cursor: pointer;
-  caret-color: #fff;
+.list-input,
+.date-input {
+    cursor: pointer;
+    caret-color: #fff;
+}
+
+.wrapper {
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+    transition: 0.2s;
+
+    &-table {
+        min-height: calc(100vh - 175px);
+        padding: 20px;
+        transition: 0.2s;
+    }
+
+    &-center {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        min-height: calc(100vh - 175px);
+        padding: 20px;
+        transition: 0.2s;
+    }
+}
+
+.manage-block {
+    display: flex;
+    gap: 10px;
+}
+
+.page {
+    padding-left: 260px;
+
+    &-body {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        height: calc(100vh - 120px);
+        transition: 0.2s;
+    }
+}
+
+.default-page {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.default-card {
+    width: 450px;
+    height: 710px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px #C5C5C5;
+    background-color: #fff;
+
+    &-freeheight {
+        width: 450px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px 0px #C5C5C5;
+        background-color: #fff;
+    }
+
+    &-header {
+        width: 100%;
+        height: 300px;
+
+        &-img {
+            width: 100%;
+            height: 100%;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        height: calc(100% - 300px);
+
+        &-description {
+            height: 100%;
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #004F9E;
+                border-radius: 5px;
+            }
+        }
+
+        &-pollquestion {
+            height: 100%;
+            overflow: auto;
+            color: #000;
+            font-weight: 600;
+        }
+
+        &-title {
+            color: #0164C0;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        &-footer {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            align-self: flex-end;
+
+            &-production {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.question-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answers-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.answer {
+    display: flex;
+    gap: 5px;
+}
+
+.scrolling-content {
+    overflow: auto;
+    height: calc(100vh - 60px);
+    z-index: 10;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin: 10px 0 10px 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border: 3px solid #fff;
+        background-color: #004F9E;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #003B77;
+    }
 }
 
 
@@ -123,60 +670,64 @@ ul {
 /* -----Стилизация повторяющихся чекбоксов(кастомные) */
 
 .checkbox-container {
-  display: flex;
-  justify-content: center;
-  width: 45px;
-  padding: 10px 10px;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    padding: 10px 10px;
+    cursor: pointer;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    position: absolute;
 }
 
 .checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-  border-radius: 5px;
-  transition: 0.2s;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    border-radius: 5px;
+    transition: 0.2s;
 }
 
 .checkmark {
-  position: relative;
-  height: 22px;
-  width: 22px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 79, 158, 0.274);
-  border-radius: 5px;
-  transition: 0.2s;
+    position: relative;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 79, 158, 0.274);
+    border-radius: 5px;
+    transition: 0.2s;
 }
 
 .checkbox-container input:checked~.checkmark {
-  background-color: #004F9E;
-  border-radius: 5px;
-  transition: 0.2s;
+    background-color: #004F9E;
+    border-radius: 5px;
+    transition: 0.2s;
 }
 
 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-  transition: 0.2s;
+    content: "";
+    position: absolute;
+    display: none;
+    transition: 0.2s;
 }
 
 .checkbox-container input:checked~.checkmark:after {
-  display: block;
-  transition: 0.2s;
+    display: block;
+    transition: 0.2s;
 }
 
 .checkbox-container .checkmark:after {
-  left: 7px;
-  top: 2px;
-  width: 7px;
-  height: 13px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  transition: 0.2s;
+    left: 7px;
+    top: 2px;
+    width: 7px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: 0.2s;
 }
 
 
@@ -187,15 +738,15 @@ ul {
 /* -----Стилизация повторяющихся иконок */
 
 .icon-abs-style {
-  position: absolute;
-  right: 18px;
-  top: 5px;
-  transition: transform 0.15s ease-in-out;
+    position: absolute;
+    right: 18px;
+    top: 5px;
+    transition: transform 0.15s ease-in-out;
 }
 
 .icon-fix {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 
@@ -206,74 +757,23 @@ ul {
 /* ----- Стилизация контейнеров под пользователей, отделов */
 
 .heading {
-  color: #000;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
+    color: #000;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
 }
 
 .less-info {
-  color: #212529;
-  font-family: Nunito;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
+    color: #212529;
+    font-family: Nunito;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 /* -----end */
 
-
-
-/* -----Предзагрузчик */
-
-.preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  background: #fff;
-  z-index: 999;
-}
-
-.preloader-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url(assets/images/load.gif) no-repeat 50% 50%;
-}
-
-.search-loading {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background: #fff;
-  border-radius: 15px;
-
-  &-modal {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background: #fff;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0px 0px 7px 0px #c5c5c5;
-  }
-
-  &-block {
-    position: absolute;
-    z-index: 999;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-
-/* -----end */
 
 
 
@@ -281,31 +781,44 @@ ul {
 
 
 .placeholder-prompt {
-  position: absolute;
-  color: #6B7278;
-  pointer-events: none;
-  transition: 0.2s;
-  z-index: 1;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  left: 15px;
-  top: 3px;
-  height: 13px;
+    position: absolute;
+    color: #6B7278;
+    pointer-events: none;
+    transition: 0.2s;
+    z-index: 1;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    left: 15px;
+    top: 3px;
+    height: 13px;
+
+    &.invalid {
+        color: red;
+    }
 }
 
-.placeholder-valid {
-  position: absolute;
-  color: red;
-  pointer-events: none;
-  transition: 0.2s;
-  z-index: 1;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  left: 15px;
-  top: 3px;
-  height: 13px;
+.input-polls-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+
+    &-field {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    &-delete {
+        align-items: center;
+        display: flex;
+    }
+
+    &:empty {
+
+        display: none;
+    }
 }
 
 .input-container:focus-within .placeholder-prompt,
@@ -313,114 +826,134 @@ ul {
 .description-input:valid+.placeholder-prompt,
 .input-with-table:valid+.placeholder-prompt,
 .input-with-chose:valid+.placeholder-prompt {
-  background-color: #fff;
-  top: -10px;
-  color: #004F9E;
-  pointer-events: none;
-  transition: 0.2s;
-  font-size: 14px;
-  padding: 0 5px 0 5px;
+    background-color: #fff;
+    top: -10px;
+    color: #004F9E;
+    pointer-events: none;
+    transition: 0.2s;
+    font-size: 14px;
+    padding: 0 5px 0 5px;
 }
 
 .input-style {
-  width: 100%;
-  height: 32px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  transition: 0.2s;
+    width: 100%;
+    height: 32px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: 0.2s;
 }
 
 .invalid-input {
-  border: 1px solid red !important;
-  border-radius: 5px;
+    border: 1px solid red !important;
+    border-radius: 5px;
 }
 
-.invalid-input:invalid+.placeholder-valid {
-  background-color: #fff;
-  top: -10px;
-  color: #770000 !important;
-  pointer-events: none;
-  transition: 0.2s;
-  font-size: 14px;
-  padding: 0 5px 0 5px;
+.disabled {
+    cursor: default;
+    caret-color: #fff;
+}
+
+.invalid-input-chose {
+    border-right: 1px solid red !important;
+    border-left: 1px solid red !important;
+    border-top: 1px solid red !important;
+    border-bottom: 2px solid red !important;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.invalid-input:invalid+.placeholder-valid,
+.invalid-input-chose:invalid+.placeholder-valid {
+    background-color: #fff;
+    top: -10px;
+    color: #770000 !important;
+    pointer-events: none;
+    transition: 0.2s;
+    font-size: 14px;
+    padding: 0 5px 0 5px;
 }
 
 .input-style:focus,
 .description-input:focus,
 .input-with-chose:focus {
-  transition: 0.4s;
-  border: 1px solid rgba(0, 79, 158, 0.582);
+    transition: 0.4s;
+    border: 1px solid rgba(0, 79, 158, 0.582);
 }
 
-.input-container {
-  position: relative;
-}
-
+.input-container,
 .input-container-prevent {
-  position: relative;
+    position: relative;
+    width: 100%;
 }
 
 .description-input {
-  width: 100%;
-  height: 160px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  transition: 0.2s;
+    width: 100%;
+    height: 160px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: 0.2s;
+
+    &.height {
+        height: calc(100vh - 450px);
+    }
+
+    &.default {
+        height: 360px;
+    }
 }
 
 .description-input::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
 }
 
 .description-input::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 .description-input::-webkit-scrollbar-thumb {
-  background-color: #004F9E;
-  border-radius: 5px;
+    background-color: #004F9E;
+    border-radius: 5px;
 }
 
 .input-with-table {
-  width: 100%;
-  height: 32px;
-  border-radius: 5px;
-  border-bottom: 2px solid rgba(0, 79, 158, 0.582);
-  border-radius: 5px 5px 0px 0px;
-  border-right: 1px solid #eee;
-  border-left: 1px solid #eee;
-  border-top: 1px solid #eee;
+    width: 100%;
+    height: 32px;
+    border-radius: 5px;
+    border-bottom: 2px solid rgba(0, 79, 158, 0.582);
+    border-radius: 5px 5px 0px 0px;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-top: 1px solid #eee;
 }
 
 .input-with-table:focus {
-  transition: 0.1s;
-  border-right: 1px solid rgba(0, 79, 158, 0.582);
-  border-left: 1px solid rgba(0, 79, 158, 0.582);
-  border-top: 1px solid rgba(0, 79, 158, 0.582);
+    transition: 0.1s;
+    border-right: 1px solid rgba(0, 79, 158, 0.582);
+    border-left: 1px solid rgba(0, 79, 158, 0.582);
+    border-top: 1px solid rgba(0, 79, 158, 0.582);
 }
 
 .input-with-chose {
-  width: 100%;
-  height: 32px;
-  border-radius: 5px 5px 0px 0px;
-  border-style: none;
-  border-bottom: 2px solid #004F9E;
-  border-left: 1px solid #eee;
-  border-top: 1px solid #eee;
-  border-right: 1px solid #eee;
-  transition: 0.2s;
+    width: 100%;
+    height: 32px;
+    border-radius: 5px 5px 0px 0px;
+    border-style: none;
+    border-bottom: 2px solid #004F9E;
+    border-left: 1px solid #eee;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    transition: 0.2s;
 }
 
 .input-with-chose:focus {
-  border-left: 1px solid rgba(0, 79, 158, 0.582);
-  border-top: 1px solid rgba(0, 79, 158, 0.582);
-  border-right: 1px solid rgba(0, 79, 158, 0.582);
-  border-bottom: 2px solid rgba(0, 79, 158, 0.582);
-  transition: 0.2s;
+    border-left: 1px solid rgba(0, 79, 158, 0.582);
+    border-top: 1px solid rgba(0, 79, 158, 0.582);
+    border-right: 1px solid rgba(0, 79, 158, 0.582);
+    border-bottom: 2px solid rgba(0, 79, 158, 0.582);
+    transition: 0.2s;
 }
 
 .filter-style {
-  width: 400px;
+    width: 400px;
 }
 
 
@@ -432,29 +965,48 @@ ul {
 
 
 .search-icon {
-  position: absolute;
-  right: 10px;
-  top: 5px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.production-icon-style {
+    width: 25px;
+    height: 25px;
+}
+
+.add-file-icon-style {
+    width: 30px;
+    height: 30px;
+}
+
+.img-type-style {
+    width: 71px;
+    transition: 0.1s;
+
+    &:hover {
+
+        cursor: pointer;
+        border: 3px solid #004F9E;
+        border-radius: 10px;
+        background-color: #d5e9ff;
+        transform: scale(1);
+        padding: 5px;
+        transition: 0.1s;
+    }
+
+    &:active {
+        padding: 5px;
+        transition: 0.1s;
+    }
+}
+
+.type-chosen {
+    background-color: #d5e9ff;
+    border: 3px solid #004F9E;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 
 /* -----end */
-
-.wrapper {
-  min-height: calc(100vh - 60px);
-  padding: 30px;
-}
-
-.page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &-body {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    height: calc(100vh - 120px);
-    transition: 0.2s;
-  }
-}
