@@ -1,8 +1,8 @@
 <div class="modal-background" *ngIf="getModalViewContent().isOpen" @showModal>
     <div class="modal-window modal-add-task">
         <div class="modal-header">
-            <p class="modal-headertext-style">{{!getModalViewContent().isEdit ? 'Добавить задачу' : 'Редактирование
-                задачи'}}</p>
+            <p class="modal-headertext-style">{{(!getModalViewContent().isEdit ? 'Добавить задачу' : 'Редактирование
+                задачи') | translate}}</p>
             <img class="button-fix close-button" src="assets/images/close.svg" (click)="closeModal()">
         </div>
         <div class="modal-body">

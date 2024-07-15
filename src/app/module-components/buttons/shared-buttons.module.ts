@@ -12,6 +12,7 @@ import { EditButtonBigComponent } from './edit-button-big/edit-button-big.compon
 import { DeleteButtonBigComponent } from './delete-button-big/delete-button-big.component';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { OkButtonComponent } from './ok-button/ok-button.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -28,7 +29,8 @@ import { OkButtonComponent } from './ok-button/ok-button.component';
     OkButtonComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   exports: [
     DeleteButtonComponent,

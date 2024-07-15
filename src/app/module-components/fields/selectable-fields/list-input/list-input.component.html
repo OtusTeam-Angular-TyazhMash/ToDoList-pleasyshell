@@ -1,13 +1,14 @@
 <div class="input-container">
     <input title="" [ngClass]="{'invalid-input': invalidCheckInput()}" type="text"
-        value="{{value.Name || value.Status || value.FilterName}}" class="input-style list-input" (click)="openList()" required
-        disableTyping>
-    <label [ngClass]="{'placeholder-valid': invalidCheckInput()}" class="placeholder-prompt">{{placeholder}}</label>
+        value="{{(value.Name || value.Status || value.FilterName) | translate}}" class="input-style list-input"
+        (click)="openList()" required disableTyping>
+    <label [ngClass]="{'placeholder-valid': invalidCheckInput()}" class="placeholder-prompt">{{placeholder |
+        translate}}</label>
     <img class="icon-abs-style list-style" src="assets/images/list.svg" [ngStyle]="{'transform': listSelected()}">
     <div class="modal-list" *ngIf="isOpen" @showList>
         <div class="list">
             <div class="list-container" *ngFor="let row of tableRow" (click)="onClickRow(row)">
-                <p class="item-main">{{row.Name || row.Status || row.FilterName}}</p>
+                <p class="item-main">{{(row.Name || row.Status || row.FilterName) | translate}}</p>
             </div>
         </div>
     </div>

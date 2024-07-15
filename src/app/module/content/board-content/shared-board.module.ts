@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { boardReducer } from './store/reducer/board-content.reducer';
 import { BoardContentEffects } from './store/effects/board-content.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { EffectsModule } from '@ngrx/effects';
         SharedFieldsModule,
         StoreModule.forFeature(BOARD_STATE_NAME, boardReducer),
         EffectsModule.forFeature([BoardContentEffects]),
+        TranslateModule
     ],
     providers: [BoardContentService]
 })

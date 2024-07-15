@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NoticeComponent } from './notice.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { NoticeComponent } from './notice.component';
         NoticeComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        TranslateModule
     ],
     exports: [
         NoticeComponent

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedDirectivesModule } from 'src/utils/directives';
 import { ModalDeleteTaskComponent } from './modal-delete-task/modal-delete-task.component';
 import { SharedFieldsModule } from '../fields';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedFieldsModule } from '../fields';
         SharedButtonsModule,
         FormsModule,
         SharedDirectivesModule,
-        SharedFieldsModule
+        SharedFieldsModule,
+        TranslateModule
     ],
     exports: [
         ModalTaskComponent,

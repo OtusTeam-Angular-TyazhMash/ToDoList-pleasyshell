@@ -4,6 +4,7 @@ import { TitleInputComponent } from './title-input/title-input.component';
 import { ListInputComponent } from './selectable-fields/list-input/list-input.component';
 import { SharedDirectivesModule } from 'src/utils/directives';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +16,8 @@ import { TextAreaComponent } from './text-area/text-area.component';
   ],
   imports: [
     CommonModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    TranslateModule
   ],
   exports: [
     TitleInputComponent,

@@ -1,10 +1,10 @@
 <div class="delete-background" *ngIf="getModalViewContent().isOpen" @showModal>
     <div class="modal-window modal-submit">
         <div class="modal-header">
-            <p class="modal-headertext-style">Подтверждение</p>
+            <p class="modal-headertext-style">{{'Подтверждение' | translate}}</p>
         </div>
         <div class="submit-body">
-            <p class="modal-submit-text">Вы уверены, что хотите удалить задачу</p>
+            <p class="modal-submit-text">{{'Вы уверены, что хотите удалить задачу' | translate}}</p>
             <p class="submit-body-text">{{getModalViewContent().ModalContent.TaskName}} ?</p>
         </div>
         <div class="modal-footer-delete">

@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { TASKS_STATE_NAME, tasksReducer } from './store';
 import { BacklogContentEffects } from './store/effects/backlog-content.effects';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { BacklogContentEffects } from './store/effects/backlog-content.effects';
         SharedDirectivesModule,
         StoreModule.forFeature(TASKS_STATE_NAME, tasksReducer),
         EffectsModule.forFeature([BacklogContentEffects]),
+        TranslateModule
     ],
     providers: [BacklogAddModalService, BacklogDeleteModalService]
 })

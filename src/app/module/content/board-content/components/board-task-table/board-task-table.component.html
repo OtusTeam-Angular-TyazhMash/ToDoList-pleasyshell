@@ -7,9 +7,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Название</th>
-                <th>Статус</th>
-                <th>Описание</th>
+                <th>{{'Название' | translate}}</th>
+                <th>{{'Статус' | translate}}</th>
+                <th>{{'Описание' | translate}}</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
                         <input [ngModel]="task.TaskStatus.Id > 1" type="checkbox" disabled>
                         <span class="checkmark"></span>
                     </label></td>
-                <td>{{task.Description}}</td>
+                <td>{{task.Description | translate}}</td>
             </tr>
         </tbody>
     </table>

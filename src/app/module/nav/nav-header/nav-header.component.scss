@@ -9,6 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  justify-content: space-between;
 
   &-title {
     font-size: 36px;
@@ -20,4 +21,9 @@
 p {
   color: #FFF;
   cursor: pointer;
+}
+
+.language-button-container {
+  display: flex;
+  gap: 15px;
 }

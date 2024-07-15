@@ -1,24 +1,24 @@
 <div class="selected-task-body">
     <ng-container *ngIf="getTask().Id > 0; else noIdText">
         <div class="selected-task-body-header">
-            <p>Просмотр задачи</p>
+            <p>{{'Просмотр задачи' | translate}}</p>
         </div>
         <div class="selected-task-body-container">
             <div class="input-container">
                 <input disableTyping title="" value="{{getTask().TaskName}}" class="input-style disabled" type="text"
                     required>
-                <label class="placeholder-prompt">Название</label>
+                <label class="placeholder-prompt">{{'Название'| translate}}</label>
             </div>
             <div class="input-container">
-                <input disableTyping value="{{getTask().TaskStatus.Status}}" class="input-style disabled" type="text"
+                <input disableTyping value="{{getTask().TaskStatus.Status | translate}}" class="input-style disabled" type="text"
                     required>
-                <label class="placeholder-prompt">Статус</label>
+                <label class="placeholder-prompt">{{'Статус' | translate}}</label>
             </div>
             <div class="selected-task-body-description">
                 <div class="input-container">
                     <textarea disableTyping title="" class="description-input height disabled" required
                         disableTyping>{{getTask().Description}}</textarea>
-                    <label class="placeholder-prompt">Описание</label>
+                    <label class="placeholder-prompt">{{'Описание' | translate}}</label>
                 </div>
             </div>
             <div class="manage-task">
@@ -29,6 +29,6 @@
         </div>
     </ng-container>
     <ng-template #noIdText>
-        <p class="no-info">Кликните левой кнопкой мыши по задаче, чтобы посмотреть её детали</p>
+        <p class="no-info">{{'Кликните левой кнопкой мыши по задаче, чтобы посмотреть её детали' | translate}}</p>
     </ng-template>
 </div>
